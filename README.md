@@ -1,1 +1,1 @@
-h1. Run Riot Projects repo
+# Run Riot Projects repo
