@@ -39,7 +39,7 @@ function runriot_eventbrite_block_block_view($delta='') {
  */
 function runriot_eventbrite_block_block_contents() {
 
-  if (arg(0) == 'admin') {
+  if (arg(0) == 'admin' || arg(0) == 'panels') {
     return '';
   }
 
