@@ -39,9 +39,13 @@ function runriot_eventbrite_block_block_view($delta='') {
  */
 function runriot_eventbrite_block_block_contents() {
 
+  if (arg(0) == 'admin') {
+    return '';
+  }
+
+
   $node = menu_get_object();
   $content = '';
-  kpr($node);
 
   // get the field collections attached to the node
   $field_collection_items = field_get_items('node', $node, 'field_event_date');
