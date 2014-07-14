@@ -1,0 +1,190 @@
+<?php
+/**
+ * @file
+ * Code for custom Event brite API block
+ */
+
+function runriot_eventbrite_block_block_info() {
+  $blocks['rr-eventbrite-signup'] = array(
+    'info' => t('Eventbrite sign up'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function runriot_eventbrite_block_block_configure($delta='') {
+  $form = array();
+  return $form;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function runriot_eventbrite_block_block_view($delta='') {
+  $block = array();
+  switch ($delta) {
+    case 'rr-eventbrite-signup':
+      $block['subject'] = t('Eventbrite sign up');
+      $block['content'] = runriot_eventbrite_block_block_contents();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * custom html block
+ * @return string
+ */
+function runriot_eventbrite_block_block_contents() {
+
+  $node = menu_get_object();
+  $content = '';
+  kpr($node);
+
+  // get the field collections attached to the node
+  $field_collection_items = field_get_items('node', $node, 'field_event_date');
+  $field_collection_item_ids = array();
+  $i = 0;
+  foreach ($field_collection_items as $field_collection_item){
+      $field_collection_item_ids[$i] = $field_collection_item['value'];
+
+      $i++;
+  }
+
+  // get the fields attached to the event field collection and check for
+  // eventbrite id
+  $field_collection_item_fields = entity_load('field_collection_item', $field_collection_item_ids);
+  $event_dates = array();
+  foreach ($field_collection_item_fields as $event_item) {
+    if (!empty($event_item->field_eventbrite_page)) {
+      $event_dates[] = $event_item;
+    }
+  }
+
+  if (empty($event_dates)) {
+    return "";
+  }
+
+  // setup the EventBrite api
+  $app_key = variable_get("rr_eventbrite_app_key", "MU2WVQCG3T6JP2PZX7");
+  $user_key = variable_get("rr_eventbrite_user_key", "1404244170106795948557");
+  $eb_client = new Eventbrite( array('app_key'=> $app_key,'user_key'=> $user_key));
+
+  // API call for each valid event
+  foreach ($event_dates as $event_date) {
+
+    $eb_id = field_get_items('field_collection_item', $event_date, 'field_eventbrite_page', $langcode = NULL);
+
+    if (!isset($eb_id[0]['value'])) {
+      continue;
+    }
+
+    $resp = $eb_client->event_get( array('id' => $eb_id[0]['value']));
+    if (!isset($resp->event)) {
+      continue;
+    }
+    $event = $resp->event;
+    // kpr($event);
+
+    // $content .= '<div class="eventbrite-event">';
+    // $items['items'] = array(
+    //   $event->title,
+    //   "Start ". date("d/m/Y h:i", strtotime($event->start_date)),
+    //   "End ". date("d/m/Y h:i", strtotime($event->end_date)),
+    //   "Full rate ticket &pound;". $event->tickets[0]->ticket->display_price ." remaining: ". $event->tickets[0]->ticket->quantity_available,
+    //   "Concession rate ticket &pound;". $event->tickets[1]->ticket->display_price ." remaining: ". $event->tickets[1]->ticket->quantity_available,
+    //   l($event->url, $event->url)
+    // );
+
+    $content .= theme('runriot_evenbrite_block', array(
+      "items" => array(
+        "event" => $event,
+        "mailchimp-list-id" => '',
+      ),
+    ));
+    $content .= "</div>";
+  }
+
+  return $content;
+}
+
+
+/**
+ * Implements hook_theme().
+ *
+ * Defines the theming capabilities provided by this module.
+ */
+function runriot_eventbrite_block_theme() {
+  return array(
+    'runriot_evenbrite_block'  => array(
+      'variables' => array(
+        'items' => NULL,
+      ),
+      'template' => 'theme/runriot-eventbrite-block',
+    )
+  );
+}
+
+/**
+ * Helper function to format dates
+ */
+function _runriot_get_event_date($start_date, $end_date) {
+  $start_time = strtotime($start_date);
+  $end_time = strtotime($end_date);
+
+  // if the difference is less than 1 day
+  if (($start_time - $end_time) < 86400) {
+    return "<span class=\"start-time\">" . date("h:i", $start_time) . "</span> - <span class=\"end-time\">" .
+    date("h:i", $end_time) . "</span> <span class=\"date-part\">" .
+    date("j M Y", $start_time) ."</span>";
+  } else {
+    return "<span class=\"start\">" . date("h:i j M Y", $start_time) . "</span> - <span class=\"end\">" .
+    date("h:i j M Y", $end_time) ."</span>";
+  }
+}
+
+/**
+ * Helper function to get ticket formats
+ */
+function _runriot_get_tickets($event) {
+  $tickets = array("full" => array(), "concession" => array());
+  foreach ($event->tickets as $key => $ticket) {
+    if (preg_match("/full/i", $ticket->ticket->name)) {
+      $tickets['full'] = $ticket->ticket;
+    }
+    elseif (preg_match("/concession/i", $ticket->ticket->name)) {
+      $tickets['concession'] = $ticket->ticket;
+    }
+  }
+  return $tickets;
+}
+
+/**
+ * Custom sign up form
+ */
+function runriot_signup_block($form, &$form_state, $vars) {
+
+  $form['email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your email'),
+    '#prefix' => '<div class="subscribe-form" style="display:none" id="subscribe-form-' . $vars['ticket-type'] . '">',
+  );
+  $form['list_id'] = array(
+    '#type' => 'hidden',
+    '#value' => 1,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Subscribe'),
+    '#suffix' => '</div>',
+  );
+  return $form;
+}
+
+function runriot_signup_block_submit($form, &$form_state) {
+  require_once('includes/Mailchimp.php');
+  $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => TRUE));
+}
+
