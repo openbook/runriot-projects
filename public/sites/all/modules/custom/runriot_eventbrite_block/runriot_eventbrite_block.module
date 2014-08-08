@@ -48,21 +48,10 @@ function runriot_eventbrite_block_block_contents() {
   $content = '';
 
   // get the field collections attached to the node
-  $field_collection_items = field_get_items('node', $node, 'field_event_date');
-  $field_collection_item_ids = array();
-  $i = 0;
-  foreach ($field_collection_items as $field_collection_item){
-      $field_collection_item_ids[$i] = $field_collection_item['value'];
+  $field_collection_items = field_get_items('node', $node, 'field_eventbrite_page');
 
-      $i++;
-  }
-
-  // get the fields attached to the event field collection and check for
-  // eventbrite id
-  $field_collection_item_fields = entity_load('field_collection_item', $field_collection_item_ids);
-  $event_dates = array();
-  foreach ($field_collection_item_fields as $event_item) {
-    if (!empty($event_item->field_eventbrite_page)) {
+  foreach ($field_collection_items as $event_item) {
+    if (!empty($event_item['value'])) {
       $event_dates[] = $event_item;
     }
   }
@@ -79,28 +68,11 @@ function runriot_eventbrite_block_block_contents() {
   // API call for each valid event
   foreach ($event_dates as $event_date) {
 
-    $eb_id = field_get_items('field_collection_item', $event_date, 'field_eventbrite_page', $langcode = NULL);
-
-    if (!isset($eb_id[0]['value'])) {
-      continue;
-    }
-
-    $resp = $eb_client->event_get( array('id' => $eb_id[0]['value']));
+    $resp = $eb_client->event_get( array('id' => $event_date['value'] ) );
     if (!isset($resp->event)) {
       continue;
     }
     $event = $resp->event;
-    // kpr($event);
-
-    // $content .= '<div class="eventbrite-event">';
-    // $items['items'] = array(
-    //   $event->title,
-    //   "Start ". date("d/m/Y h:i", strtotime($event->start_date)),
-    //   "End ". date("d/m/Y h:i", strtotime($event->end_date)),
-    //   "Full rate ticket &pound;". $event->tickets[0]->ticket->display_price ." remaining: ". $event->tickets[0]->ticket->quantity_available,
-    //   "Concession rate ticket &pound;". $event->tickets[1]->ticket->display_price ." remaining: ". $event->tickets[1]->ticket->quantity_available,
-    //   l($event->url, $event->url)
-    // );
 
     $content .= theme('runriot_evenbrite_block', array(
       "items" => array(
@@ -108,7 +80,7 @@ function runriot_eventbrite_block_block_contents() {
         "mailchimp-list-id" => '',
       ),
     ));
-    $content .= "</div>";
+    // $content .= "</div>";
   }
 
   return $content;
