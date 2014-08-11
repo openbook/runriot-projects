@@ -31,9 +31,9 @@
 
   <nav id="nav-connect">
     <ul>
-      <li id="nc-twitter"><a href="#">Twitter</a></li>
-      <li id="nc-facebook"><a href="#">Facebook</a></li>
-      <li id="nc-youtube"><a href="#">YouTube</a></li>
+      <li id="nc-twitter"><a href="http://twitter.com/Run_Riot">Twitter</a></li>
+      <li id="nc-facebook"><a href="http://www.facebook.com/run.riot.LDN">Facebook</a></li>
+      <li id="nc-youtube"><a href="https://www.youtube.com/user/RUNRIOTTV/videos">YouTube</a></li>
       <li id="nc-joinus"><a href="#">Join us</a></li>
     </ul>
   </nav>
