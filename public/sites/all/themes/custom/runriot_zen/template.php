@@ -66,18 +66,70 @@ function runriot_zen_preprocess_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("node" in this case.)
  */
-/* -- Delete this line if you want to use this function
-function runriot_zen_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-
-  // Optionally, run node-type-specific preprocess functions, like
-  // runriot_zen_preprocess_node_page() or runriot_zen_preprocess_node_story().
-  $function = __FUNCTION__ . '_' . $variables['node']->type;
-  if (function_exists($function)) {
-    $function($variables, $hook);
+function runriot_zen_preprocess_field(&$variables, $hook) {
+  if ($variables['element']['#field_name'] == 'field_course_info_download'
+    || $variables['element']['#field_name'] == 'field_download_faqs') {
+    $variables['element'][0]['#file']->filename = $variables['element']['#items'][0]['filename'] = 'Download complete PDF';
+  }
+  if ($variables['element']['#field_name'] == 'field_course_info'
+    || $variables['element']['#field_name'] == 'field_faq_info') {
+    $variables['theme_hook_suggestions'][] = 'field_collection_item__info';
   }
 }
-// */
+
+/**
+ * Override or insert variables into the node templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("node" in this case.)
+ */
+function runriot_zen_preprocess_node(&$variables, $hook) {
+}
+
+/**
+ * Returns HTML for an image with an appropriate icon for the given file.
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - file: A file object for which to make an icon.
+ *   - icon_directory: (optional) A path to a directory of icons to be used for
+ *     files. Defaults to the value of the "file_icon_directory" variable.
+ *
+ * @ingroup themeable
+ */
+function runriot_zen_file_icon($variables) {
+  return '';
+}
+
+function runriot_zen_file_link($variables) {
+  $file = $variables['file'];
+  $icon_directory = $variables['icon_directory'];
+
+  $url = file_create_url($file->uri);
+  // $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+
+  // Set options as per anchor format described at
+  // http://microformats.org/wiki/file-format-examples
+  $options = array(
+    'attributes' => array(
+      'type' => $file->filemime . '; length=' . $file->filesize,
+      'class' => array("download", "download-pdf"),
+    ),
+  );
+
+  // Use the description as the link text if available.
+  if (empty($file->description)) {
+    $link_text = $file->filename;
+  }
+  else {
+    $link_text = $file->description;
+    $options['attributes']['title'] = check_plain($file->filename);
+  }
+
+  return l($link_text, $url, $options) ;
+}
 
 /**
  * Override or insert variables into the comment templates.

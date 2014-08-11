@@ -16,11 +16,16 @@
   </div>
 
   <nav id="nav-main">
-    <a href="#" id="navibar">Menu <i class="navmenu"></i></a>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
+      <a href="#" id="navibar"><span>Menu</span> <i class="navmenu"></i></a>
+      <ul>
+        <li><a href="template-1-home.html">Home</a></li>
+        <li><a href="template-2-learning.html">Learning</a></li>
+        <li><a href="#">Creative</a></li>
+        <li><a href="template-4-magazine.html">Magazine</a></li>
+        <li><a href="template-5-about.html">About</a></li>
+        <li><a href="#">Donate</a></li>
+        <li><a href="template-6-contact.html">Contact</a></li>
+      </ul>
   </nav>
 
 
@@ -41,7 +46,7 @@
 
   <section id="content" class="column" role="main">
     <?php print render($page['highlighted']); ?>
-    <?php print $breadcrumb; ?>
+    <?php //print $breadcrumb; ?>
     <a id="main-content"></a>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
@@ -58,8 +63,74 @@
     <?php print $feed_icons; ?>
   </section>
 
+  <section id="join" class="cf align-left bkg-white">
+    <div class="inner">
 
+      <h2>Join us</h2>
 
+      <div class="grid cf">
+
+        <div class="col grid-1col">
+        </div>
+
+        <div class="col grid-4col">
+          <p>Hear about our Projects<br>
+          Read our Magazine bulletins</p>
+          <p>Join us <span class="r-arrow"></span></p>
+
+        </div>
+
+        <div class="col grid-2col">
+        </div>
+
+        <div class="col grid-4col">
+
+          <form action="#" id="form-join">
+
+            <label id="form-join-fname">
+              <span>First name</span>
+              <input type="text">
+            </label>
+
+            <label id="form-join-lname">
+              <span>Last name</span>
+              <input type="text">
+            </label>
+
+            <label id="form-join-email">
+              <span>Email address</span>
+              <input type="email">
+            </label>
+
+              <ul class="checkbox-columns cf">
+                <li>
+                  <input type="checkbox" id="form-join-chk-rrp">
+                  <label for="form-join-chk-rrp">
+                    <span>Run-Riot Projects</span>
+                  </label>
+                </li>
+                <li>
+                  <input type="checkbox" id="form-join-chk-rrm">
+                  <label for="form-join-chk-rrm">
+                    <span>Run-Riot Magazine</span>
+                  </label>
+                </li>
+              </ul>
+
+            <label id="form-join-submit">
+              <input type="submit" value="Join us">
+            </label>
+
+          </form>
+
+        </div>
+
+        <div class="col grid-1col">
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <?php
     // Render the sidebars to see if there's anything in them.

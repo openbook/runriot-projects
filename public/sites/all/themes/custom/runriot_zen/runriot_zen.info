@@ -67,6 +67,10 @@ stylesheets[all][] = css/styles.css
 ; Optionally add some JavaScripts to your theme.
 
 ;scripts[] = js/script.js
+scripts[] = js/jquery.js
+scripts[] = js/html5.js
+scripts[] = js/jquery.bxslider.min.js
+scripts[] = js/scripts.js
 
 
 

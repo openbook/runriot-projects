@@ -23,9 +23,16 @@
     </header>
 
   </div>
+
+
+      <div id="course-browse">
+        <a id="prev-course" href="#">Previous course</a>
+        <a id="next-course" href="#">Next course</a>
+      </div>
+
 </section>
 
-<section id="slides" class="cf bkg-white">
+<section id="slides" class="cf course-slides">
   <div class="inner">
     <?php print $content['hero_image']; ?>
   </div>
@@ -33,7 +40,7 @@
 
 
 
-<section id="course-desc" class="cf">
+<section id="course-desc" class="h2-no-margin-bottom no-padding-bottom p-large cf">
   <div class="inner">
 
     <div class="grid cf">
@@ -96,7 +103,7 @@
 </section>
 
 
-<section id="about-course" class="cf ">
+<section id="about-course" class="align-left no-padding-bottom p-med cf ">
 
   <div class="inner">
 
@@ -113,20 +120,25 @@
       </div>
 
     </div>
+  </div>
+</section>
 
 
-    <div id="more-about-course">
-      <header>
-        <?php print $content['more_about_header']; ?>
-      </header>
-        <?php print $content['more_about']; ?>
-    </div>
+
+<section id="more-about-course"  class="accordion-wrapper cf ">
+  <div class="inner">
+
+    <header <?php if (strpos($content['more_about_header'], 'Download')) :?>class="title-with-download"<?php endif; ?>>
+      <?php print $content['more_about_header']; ?>
+    </header>
+
+    <?php print $content['more_about']; ?>
 
   </div>
 </section>
 
 
-<section id="trainer" class="cf bkg-white">
+<section id="trainer" class="cf align-left bkg-white">
   <div class="inner">
 
     <header>
@@ -161,7 +173,7 @@
 
       <div class="col grid-8col">
 
-        <h2>Media</h2>
+        <h2 id="h2-media" class="with-icon icon-only">Media</h2>
 
         <?php print $content['trainer_media']; ?>
 
@@ -176,10 +188,10 @@
 </section>
 
 
-<section id="course-faq" class="cf ">
+<section id="course-faq" class="accordion-wrapper cf ">
   <div class="inner">
 
-    <header>
+    <header <?php if (strpos($content['course_header'], 'Download')) :?>class="title-with-download"<?php endif; ?>>
       <h2>Course FAQs</h2>
       <?php print $content['course_header']; ?>
     </header>
@@ -199,7 +211,7 @@
   </div>
 </section>
 
-<section class="cf">
+<section class="align-left p-med cf">
   <div class="inner">
 
     <div class="grid cf">
