@@ -18,13 +18,10 @@
   <nav id="nav-main">
       <a href="#" id="navibar"><span>Menu</span> <i class="navmenu"></i></a>
       <ul>
-        <li><a href="template-1-home.html">Home</a></li>
-        <li><a href="template-2-learning.html">Learning</a></li>
-        <li><a href="#">Creative</a></li>
-        <li><a href="template-4-magazine.html">Magazine</a></li>
-        <li><a href="template-5-about.html">About</a></li>
-        <li><a href="#">Donate</a></li>
-        <li><a href="template-6-contact.html">Contact</a></li>
+        <?php foreach ($custom_header_menu as $item) : ?>
+        <?php if ($item['link']['hidden']) continue; ?>
+        <li><?php print l($item['link']['link_title'], $item['link']['link_path']); ?></li>
+      <?php endforeach; ?>
       </ul>
   </nav>
 
@@ -34,7 +31,7 @@
       <li id="nc-twitter"><a href="http://twitter.com/Run_Riot">Twitter</a></li>
       <li id="nc-facebook"><a href="http://www.facebook.com/run.riot.LDN">Facebook</a></li>
       <li id="nc-youtube"><a href="https://www.youtube.com/user/RUNRIOTTV/videos">YouTube</a></li>
-      <li id="nc-joinus"><a href="#">Join us</a></li>
+      <li id="nc-joinus"><a href="#signup">Join us</a></li>
     </ul>
   </nav>
 
