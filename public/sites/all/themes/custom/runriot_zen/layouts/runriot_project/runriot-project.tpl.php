@@ -25,7 +25,7 @@
   </div>
 
 
-  <?php if (arg(0) != 'admin') print runriot_zen_get_prev_next(); ?>
+  <?php if (arg(0) != 'admin' && arg(0) != 'panels') print runriot_zen_get_prev_next(); ?>
 
 </section>
 

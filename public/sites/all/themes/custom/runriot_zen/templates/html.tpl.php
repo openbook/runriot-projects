@@ -58,9 +58,9 @@
     <div class="inner">
       <nav id="nav-sitemap">
         <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Learning</a></li>
-          <li><a href="#">Magazine</a></li>
+          <li><a href="<?php print url('node/23'); ?>">About</a></li>
+          <li><a href="<?php print url('node/26'); ?>">Learning</a></li>
+          <li><a href="<?php print url('node/27'); ?>">Magazine</a></li>
           <li class="secondary"><a href="#">Terms &amp; Privacy</a></li>
         </ul>
       </nav>
@@ -73,9 +73,9 @@
 
         <nav id="nav-social">
           <ul>
-            <li id="ns-twitter"><a href="#">Twitter</a></li>
-            <li id="ns-facebook"><a href="#">Facebook</a></li>
-            <li id="ns-youtube"><a href="#">YouTube</a></li>
+            <li id="ns-twitter"><a href="http://twitter.com/Run_Riot">Twitter</a></li>
+            <li id="ns-facebook"><a href="http://www.facebook.com/run.riot.LDN">Facebook</a></li>
+            <li id="ns-youtube"><a href="https://www.youtube.com/user/RUNRIOTTV/videos">YouTube</a></li>
           </ul>
         </nav>
       </div>

@@ -41,7 +41,7 @@
 
 <div id="container" class="cf">
 
-  <section id="content" class="column" role="main">
+
     <?php print render($page['highlighted']); ?>
     <?php //print $breadcrumb; ?>
     <a id="main-content"></a>
@@ -58,7 +58,7 @@
     <?php endif; ?>
     <?php print render($page['content']); ?>
     <?php print $feed_icons; ?>
-  </section>
+
 
   <section id="join" class="cf align-left bkg-white">
     <div class="inner">

@@ -6,7 +6,7 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728140
  */
-?>SFSDF
+?>
 <?php if ($content): ?>
   <footer id="footer" class="<?php print $classes; ?>">
     <?php print $content; ?>
