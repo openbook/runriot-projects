@@ -4,5 +4,4 @@ package = Run Riot
 core = 7.x
 dependencies[] = block
 files[] = includes/EventBrite.php
-files[] = includes/Mailchimp.php
 files[] = theme/runriot-eventbrite-block.tpl.php

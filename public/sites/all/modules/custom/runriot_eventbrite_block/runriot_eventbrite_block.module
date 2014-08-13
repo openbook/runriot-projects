@@ -73,14 +73,16 @@ function runriot_eventbrite_block_block_contents() {
       continue;
     }
     $event = $resp->event;
-
+    ctools_include('modal');
+    ctools_modal_add_js();
     $content .= theme('runriot_evenbrite_block', array(
+      "nid" => $node->nid,
       "items" => array(
         "event" => $event,
         "mailchimp-list-id" => '',
       ),
     ));
-    // $content .= "</div>";
+
   }
 
   return $content;

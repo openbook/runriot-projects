@@ -57,6 +57,37 @@ function runriot_zen_preprocess_page(&$variables, $hook) {
   $variables['custom_header_menu'] = menu_tree_all_data("main-menu");
 }
 
+/**
+ * Helper function to create prev/next button
+ */
+function runriot_zen_get_prev_next() {
+  $node = menu_get_object();
+
+  if (!isset($node->nid)) {
+    return;
+  }
+
+  $prev_nid = prev_next_nid($node->nid, 'prev');
+  $next_nid = prev_next_nid($node->nid, 'next');
+
+  $output = '<div id="course-browse">';
+  if ($prev_nid) {
+    $output .= '<a id="prev-course" href="'. 
+    url("node/" . $prev_nid) .'">Previous course</a>';
+  }
+  if ($next_nid) {
+    $output .= '<a id="next-course" href="'. 
+    url("node/" . $next_nid) .'">Next course</a>';
+  }
+
+  $output .= "</div>";
+  return $output;
+
+}
+
+
+  
+
 
 /**
  * Override or insert variables into the node templates.

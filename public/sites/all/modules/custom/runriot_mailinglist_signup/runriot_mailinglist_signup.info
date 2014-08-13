@@ -1,0 +1,7 @@
+name = Mailing list sign up form
+description = Creates a mailchimp sign up block
+package = Run Riot
+core = 7.x
+dependencies[]=block
+dependencies[]=ctools
+files[] = includes/Mailchimp.php

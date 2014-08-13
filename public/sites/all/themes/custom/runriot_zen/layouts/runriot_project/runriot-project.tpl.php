@@ -25,10 +25,7 @@
   </div>
 
 
-      <div id="course-browse">
-        <a id="prev-course" href="#">Previous course</a>
-        <a id="next-course" href="#">Next course</a>
-      </div>
+  <?php if (arg(0) != 'admin') print runriot_zen_get_prev_next(); ?>
 
 </section>
 

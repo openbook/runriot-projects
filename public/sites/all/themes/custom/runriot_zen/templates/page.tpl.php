@@ -81,44 +81,8 @@
         </div>
 
         <div class="col grid-4col">
-
-          <form action="#" id="form-join">
-
-            <label id="form-join-fname">
-              <span>First name</span>
-              <input type="text">
-            </label>
-
-            <label id="form-join-lname">
-              <span>Last name</span>
-              <input type="text">
-            </label>
-
-            <label id="form-join-email">
-              <span>Email address</span>
-              <input type="email">
-            </label>
-
-              <ul class="checkbox-columns cf">
-                <li>
-                  <input type="checkbox" id="form-join-chk-rrp">
-                  <label for="form-join-chk-rrp">
-                    <span>Run-Riot Projects</span>
-                  </label>
-                </li>
-                <li>
-                  <input type="checkbox" id="form-join-chk-rrm">
-                  <label for="form-join-chk-rrm">
-                    <span>Run-Riot Magazine</span>
-                  </label>
-                </li>
-              </ul>
-
-            <label id="form-join-submit">
-              <input type="submit" value="Join us">
-            </label>
-
-          </form>
+          <a name="signup" />
+          <?php print drupal_render(drupal_get_form("runriot_mailinglist_footer_signup_form")); ?>
 
         </div>
 
