@@ -16,6 +16,8 @@ function runriot_zen_runriot_home_panels_layouts() {
       'slides' => t('Slides'),
       'content' => t('content'),
       'latestprojects' => t('Latest projects'),
+      'events' => t('events'),
+      'blogs' => t('blogs'),
     ),
   );
   return $items;

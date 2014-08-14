@@ -15,8 +15,7 @@
 /* Component (SMACSS module) rules */
 /*@import "components/misc.css";*/
 /* Optionally, add your own components here. */
-@import "print.css";
-@import "rroverride.css";
+
 /*
  * THEME for Run Riot Projects
  *
@@ -36,14 +35,18 @@
  * 16 Sections - Featured
  * 20 Modules - Panels (featured content)
  * 21 Modules - Accordion
+ * 22 Modules - Popups
  * 30 JQuery - BXSlider
+ * 31 Layouts - Emails
  * 40 Responsive - Tablet (900px)
  * 41 Responsive - Mobile (600px)
  *
  * COLORS
- * Pale pink:   #fff2ed
- * Blue:    #023059
- * Orange:    #ff6e00
+ * Orange:      #ff6e00
+ * Orange (mid):  #fbe8e0
+ * Orange (light):  #fcf7f3
+ * Blue:      #023059
+ * Blue (light):  #9aacbd
  *
  */
 
@@ -52,10 +55,11 @@
 /* 00 Imports
 -------------------------------------------------------------- */
 @import "reset.css";
-@import url("//hello.myfonts.net/count/2b9de7");
-@font-face {font-family: 'DINCondensed-Regular';src: url('../fonts/2B9DE7_0_0.eot');src: url('../fonts/2B9DE7_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B9DE7_0_0.woff') format('woff'),url('../fonts/2B9DE7_0_0.ttf') format('truetype');}
-@font-face {
-  font-family: 'DINCondensed-Light';src: url('webfonts/2B9DE7_1_0.eot');src: url('../fonts/2B9DE7_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B9DE7_1_0.woff') format('woff'),url('../fonts/2B9DE7_1_0.ttf') format('truetype');}
+
+@import url("//hello.myfonts.net/count/2ba82d");
+@font-face {font-family: 'DINNextLTPro-LightCondensed';src: url('../fonts/2BA82D_0_0.eot');src: url('../fonts/2BA82D_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2BA82D_0_0.woff') format('woff'),url('../fonts/2BA82D_0_0.ttf') format('truetype');}
+@font-face {font-family: 'DINNextLTPro-Condensed';src: url('../fonts/2BA82D_1_0.eot');src: url('../fonts/2BA82D_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2BA82D_1_0.woff') format('woff'),url('../fonts/2BA82D_1_0.ttf') format('truetype');}
+
 
 /* 01 Skeleton
 -------------------------------------------------------------- */
@@ -68,7 +72,7 @@ body {
   overflow: hidden; }
 
 header#masthead {
-  background: #fff2ed;
+  background: #fcf7f3;
   height: 200px; }
 
 .inner {
@@ -85,25 +89,25 @@ footer {
 .grid { }
 
 .col {
-  margin:0 0 1% 1.6%;
+  margin:0 0 1% 2.5%;
   float: left;
   display: block; }
 
 .col:first-child {
   margin-left: 0; }
 
-.grid-1col {  width: 6.866%; }
-.grid-2col {  width: 15.33%; }
-.grid-3col {  width: 23.8%; }
-.grid-4col {  width: 32.26%; }
-.grid-5col {  width: 40.73%; }
-.grid-6col {  width: 49.2%; }
-.grid-7col {  width: 57.66%; }
-.grid-8col {  width: 66.13%; }
-.grid-9col {  width: 74.6%; }
-.grid-10col {   width: 83.06%; }
-.grid-11col {   width: 91.53%; }
-.grid-12col {   width: 100%; }
+.grid-1col {  width: 6.04166666667%; }
+.grid-2col {  width: 14.5833333333%; }
+.grid-3col {  width: 23.125%; }
+.grid-4col {  width: 31.6666666667%; }
+.grid-5col {  width: 40.2083333333%; }
+.grid-6col {  width: 48.75%; }
+.grid-7col {  width: 57.2916666667%; }
+.grid-8col {  width: 65.8333333333%; }
+.grid-9col {  width: 74.375%; }
+.grid-10col { width: 82.9166666667%; }
+.grid-11col { width: 91.4583333333%; }
+.grid-12col {   width: 100%; margin-left: 0; }
 
 .mobile-show {
   display: none; }
@@ -162,6 +166,8 @@ a#navibar i.navmenu {
   top: 50%;
   margin-top: -2px; }
 
+nav#nav-main {}
+
 nav#nav-main ul {
   display: none;
   background: #fbe8e0;
@@ -187,7 +193,7 @@ nav#nav-main ul li a:hover {
 
 header nav#nav-connect {
   float: right;
-  margin: 1em; }
+  margin: 1em;  }
 
 nav#nav-connect ul li {
   float: left;
@@ -209,13 +215,13 @@ nav#nav-connect ul li {
 
 nav#nav-connect ul li#nc-joinus {
   width: auto;
-  padding: 0 1em;
   text-indent: 0; }
 
 nav#nav-connect ul li a {
   text-decoration: none;
   text-transform: uppercase;
   color: #ff6e00;
+  padding: 0 1em;
   display: block;
   height: 100%;
   width: 100%; }
@@ -225,7 +231,7 @@ nav#nav-connect ul li#nc-facebook  {    background: #fbe8e0 url('../images/nc-fa
 nav#nav-connect ul li#nc-youtube {      background: #fbe8e0 url('../images/nc-youtube.png') center; }
 nav#nav-connect ul li#nc-twitter:hover {  background: #ff6e00 url('../images/ns-twitter-h.png') center; }
 nav#nav-connect ul li#nc-facebook:hover  {  background: #ff6e00 url('../images/ns-facebook-h.png') center; }
-nav#nav-connect ul li#nc-youtube :hover{  background: #ff6e00 url('../images/ns-youtube-h.png') center; }
+nav#nav-connect ul li#nc-youtube:hover{   background: #ff6e00 url('../images/ns-youtube-h.png') center; }
 nav#nav-connect ul li#nc-joinus:hover {   background: #ff6e00; }
 nav#nav-connect ul li#nc-joinus:hover a {   color: #fff; }
 
@@ -322,7 +328,7 @@ nav#nav-social ul li#ns-youtube :hover{   background:  url('../images/ns-youtube
 -------------------------------------------------------------- */
 body {
   color: #023059;
-  font-family: DINCondensed-Light, Arial, Sans-serif; }
+  font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -357,7 +363,7 @@ input[type="submit"] {
   text-decoration: none;
   margin: 1em 0;
   font-size: 1.2em;
-  font-family: DINCondensed-Light, Arial, Sans-serif;
+  font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif;
   -moz-transition: all .5s;
   -webkit-transition: all .5s;
   -o-transition: all .5s;
@@ -380,7 +386,7 @@ p a {
 input,
 label {
   color: #023059;
-  font-family: DINCondensed-Light, Arial, Sans-serif; }
+  font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
 
 section ul,
 section li {
@@ -402,7 +408,8 @@ hr {
   -webkit-column-count: 2;
   -webkit-column-gap: 3.2%;
   column-count: 2;
-  column-gap: 3.2%; }
+  column-gap: 3.2%;
+  text-align: left; }
 
 .text-cols-2 p {
   margin: 0; }
@@ -411,6 +418,9 @@ a.download-pdf {
   background: url('../images/icon-pdf.png') no-repeat left center;
   padding-left: 30px;
   display: inline-block; }
+
+a.download-pdf:hover {
+  text-decoration: underline; }
 
 /* H2 with icons */
 h2.with-icon {
@@ -526,7 +536,7 @@ form input[type="checkbox"]:checked + label:after {
 /* 10 Sections - Defaults
 -------------------------------------------------------------- */
 section {
-  background: #fff2ed;
+  background: #fcf7f3;
   padding: 3em 0 2em;
   text-align: center; }
 
@@ -549,7 +559,7 @@ section header {
   text-align: center; }
 
 section h2 {
-  font-family: DINCondensed-Regular, Arial, Sans-serif;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
   width: 100%;
   text-align: center;
   margin: 0 0 1em;
@@ -578,7 +588,7 @@ section#head p {
   font-size: 1.7em; }
 
 section#head .grid p strong {
-  font-family: 'DINCondensed-Regular', Arial, Sans-serif;
+  font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif;
   font-weight: normal; }
 
 /* Page main heading area*/
@@ -604,17 +614,17 @@ section#head header h2.sub-header {
 
 section#head header h1.sub-header {
   font-size: 2.25em;
-  font-family: DINCondensed-Light, Arial, Sans-serif; }
+  font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
 
 section#head header h2.sub-header {
   margin-top: .75em;
-  font-family: DINCondensed-Light, Arial, Sans-serif; }
+  font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
 
 section#head h2.inline {
   display: inline;
   text-transform: none !important;
   font-size: 1.7em !important;
-  font-family: 'DINCondensed-Regular', Arial, Sans-serif !important; }
+  font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif !important; }
 
 section#head p.inline {
   display: inline; }
@@ -661,7 +671,7 @@ section#slides li .caption {
   display: block;
   width: 100%;
   background: rgba(255,255,255,.8);
-  bottom: 0; }
+  bottom: 0em; }
 
 /* 12 Sections - Course
 -------------------------------------------------------------- */
@@ -676,7 +686,7 @@ ul#course-detail li {
   margin: 2% 3% 0;
   font-size: 1.75em;
   line-height: 1.4em;
-  height: 10em; }
+  height: 8em; }
 
 ul#course-detail li:nth-child(1),
 ul#course-detail li:nth-child(2) {
@@ -710,12 +720,11 @@ ul#ticket-options p {
   font-size: 1.5em; }
 
 ul#ticket-options p {
-  font-family: 'DINCondensed-Regular', Arial, Sans-serif; }
-
+  font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif; }
 
 ul#ticket-options li.sold-out p {
   color: #d0d8df;
-  font-family: 'DINCondensed-Light', Arial, Sans-serif; }
+  font-family: 'DINNextLTPro-LightCondensed', Arial, Sans-serif; }
 
 ul#ticket-options li.sold-out p span {
   color: #ff6e00; }
@@ -725,6 +734,9 @@ ul#ticket-options li.sold-out a.btn {
   background: #fff;
   border: 2px solid #ff6e00;
   padding: .3em 4em; }
+
+ul#ticket-options li.sold-out a.btn:hover {
+  background: #fcf7f3; }
 
 /* Course nav */
 #course-browse  {
@@ -748,7 +760,6 @@ ul#ticket-options li.sold-out a.btn {
   transition: all .3s; }
 
 #course-browse a#prev-course {    left: 14px; background: url('../images/arrow-left.png') no-repeat center; }
-#course-browse a#next-course {    right: 14px; background: url('../images/arrow-right.png') no-repeat center; }
 
 #course-browse a#prev-course:hover { left: 4px; opacity: .5; }
 #course-browse a#next-course:hover { right: 4px; opacity: .5; }
@@ -784,12 +795,14 @@ section header.title-with-download p a {
 
 /* Trainer */
 section#trainer header h2 {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  font-size: 2.25em; }
 
 section#trainer header p {
   display: inline-block;
   padding-top: .5em;
-  margin: .5em 0 2em;
+  margin: .5em 0 1.5em;
+  font-size: 1.85em;
   border-top: 1px solid #023059; }
 
 .trainer-image {
@@ -809,7 +822,14 @@ ul.trainer-media li.highlight {
 
 ul.trainer-media li strong{
   font-weight: normal;
-  font-family: 'DINCondensed-Regular', Arial, Sans-serif; }
+  font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif; }
+
+#trainer-profile .grid-8col {
+  padding-bottom: 3em;
+  margin-bottom: 5em;
+  border-bottom: 1px solid #023059; }
+
+
 
 /* 13 Sections - Contact
 -------------------------------------------------------------- */
@@ -841,7 +861,7 @@ section#head.contact p a {
 
 section#head.contact .grid h2,
 section#head.contact .grid p strong {
-  font-family: 'DINCondensed-Regular', Arial, Sans-serif;
+  font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif;
   font-weight: normal; }
 
 span.r-arrow {
@@ -914,6 +934,9 @@ section#featured .times {
 section#featured p a {
   font-size: .6em !important; }
 
+
+
+
 /* 20 Modules - Panels (featured content)
 -------------------------------------------------------------- */
 ul.pane-wrapper {  }
@@ -945,7 +968,10 @@ ul.pane-wrapper li .pane-thumb .meta li {
   width: 100%;
   padding: .2em;
   margin-bottom: 2px;
-  text-transform: uppercase; }
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
 
 ul.pane-wrapper li .pane-thumb .project-type {
   left: 0;
@@ -963,14 +989,17 @@ ul.pane-wrapper li .pane-thumb .project-type p {
   text-align: left;
   text-transform: uppercase; }
 
-
 ul.pane-wrapper li h3 {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 0em; }
 
 ul.pane-wrapper li .pane-desc a {
   color: #ff6e00;
   text-decoration: none;
-  position: relative; }
+  position: relative;
+  text-transform: uppercase; }
 
 ul.pane-wrapper li .pane-desc a:after {
   content: " \003e";
@@ -981,11 +1010,23 @@ ul.pane-wrapper li .pane-desc a:after {
 ul.pane-wrapper li .pane-desc a.btn:after {
   content: ""; }
 
+ul.pane-wrapper li .pane-desc p.meta {
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
+  text-transform: uppercase;
+  color: #9aacbd;
+  margin-bottom: 0; }
+
 ul.pane-wrapper li img {
   width: 100% !important;
   max-width: 600px; }
 
-p.meta-date {
+ul.pane-wrapper li .pane-desc p {
+  margin-top: .75em; }
+
+ul.pane-wrapper li .pane-desc p.meta {
+  margin-top: 0; }
+
+ul.pane-wrapper li .pane-desc p.meta-date {
   color: #ff6e00;
   background: url('../images/icon-calendar.png') no-repeat 0 2px;
   padding-left: 30px;
@@ -1009,7 +1050,6 @@ p.meta-date {
 #latestprojects ul.pane-wrapper li.max {
   cursor: pointer; }
 
-
 /* 21 Modules - Accordion
 -------------------------------------------------------------- */
 section.accordion-wrapper {
@@ -1019,14 +1059,15 @@ section.accordion-wrapper {
   max-width: none;
   padding: 0; }
 
-
 dl.accordion {
   float: left;
   width: 100%; }
 
 dl.accordion dt {
-  font-size: 1.4em;
-  position: relative; }
+  font-size: 1.75em;
+  position: relative;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
+  cursor: pointer;  }
 
 dl.accordion div {
   max-width: 1200px;
@@ -1038,7 +1079,7 @@ dl.accordion dt:first-of-type {
 
 dl.accordion dt a {
   color: #023059;
-  padding: .3em 40px .5em .5em;
+  padding: .3em 40px .3em .5em;
   text-decoration: none;
   width: auto;
   display: block;
@@ -1076,6 +1117,57 @@ dl.accordion dd div {
 dl.accordion dd p:first-of-type {
   margin-top: 0; }
 
+dl.accordion dd p,
+dl.accordion dd li {
+  color: #fff;
+  font-size: 1.4em; }
+
+dl.accordion dd ul {
+  width: 100%;
+  margin-bottom: 2em;
+  float: left; }
+
+dl.accordion dd li {
+  width: 28%;
+  padding: .2em 4% .2em 0;
+  float: left;
+  font-size: 1.6em;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
+
+
+/*22 Modules - Popups
+-------------------------------------------------------------- */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.6);
+  filter: alpha(opacity=60);
+  z-index: 1000000;
+  display: none; }
+
+#overlay-content {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  height: 60%;
+  width: 60%;
+  background: #fff;
+  z-index: 1100000;
+  overflow: scroll;
+  display: none; }
+
+#closewin a {
+  position: absolute;
+  z-index: 90;
+  right: 0;
+  top: 0;
+}
+
+#overlay-content #container {
+  min-width: 400px; }
 
 /* 30 JQuery - BXSlider
 -------------------------------------------------------------- */
@@ -1089,14 +1181,37 @@ dl.accordion dd p:first-of-type {
  * http://bxcreative.com
  */
 
-.bx-wrapper { position: relative; margin: 0 auto 30px; padding: 0;  *zoom: 1; }
-.bx-wrapper img { max-width: 100%; display: block; }
-.bx-wrapper .bx-viewport { -webkit-transform: translatez(0); -moz-transform: translatez(0); -ms-transform: translatez(0); -o-transform: translatez(0); transform: translatez(0); }
-.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto { position: absolute; bottom: -30px; width: 100%; background: #fff2ed; }
+/** RESET AND LAYOUT
+===================================*/
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1; }
 
+.bx-wrapper img {
+  max-width: 100%;
+  display: block; }
+
+/** THEME
+===================================*/
+.bx-wrapper .bx-viewport {
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    transform: translatez(0); }
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -50px;
+  width: 100%; }
+
+/* LOADER */
 .bx-wrapper .bx-loading {
   min-height: 50px;
-  background: url(images/bx_loader.gif) center center no-repeat #fff;
+  background: url('../images/ajax-loader.gif') center center no-repeat;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -1104,12 +1219,14 @@ dl.accordion dd p:first-of-type {
   left: 0;
   z-index: 2000; }
 
+/* PAGER */
 .bx-wrapper .bx-pager {
   text-align: center;
   font-size: .85em;
+  font-family: Arial;
   font-weight: bold;
   color: #666;
-  position: absolute; }
+  padding-top: 20px; }
 
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
@@ -1129,9 +1246,23 @@ dl.accordion dd p:first-of-type {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg) }
 
-.bx-wrapper .bx-prev:hover,
+.bx-wrapper .bx-pager.bx-default-pager a:hover {  background: #fbe8e0; }
+.bx-wrapper .bx-pager.bx-default-pager a.active { background: #ff6e00; }
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(../images/slider-prev-next.png) no-repeat 0 0px; }
+
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(../images/slider-prev-next.png) no-repeat -44px 0px; }
+
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0; }
+
 .bx-wrapper .bx-next:hover {
-  opacity: .6; }
+  background-position: -43px 0; }
 
 .bx-wrapper .bx-controls-direction a {
   position: absolute;
@@ -1143,16 +1274,24 @@ dl.accordion dd p:first-of-type {
   text-indent: -9999px;
   z-index: 9999; }
 
-.bx-wrapper .bx-pager.bx-default-pager a:hover {  background: #fbe8e0; }
-.bx-wrapper .bx-pager.bx-default-pager a.active { background: #ff6e00; }
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none; }
 
-.bx-wrapper .bx-prev {
-  left: 10px;
-  background: url(../images/slider-prev-next.png) no-repeat 0 0px; }
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666\9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%; }
 
-.bx-wrapper .bx-next {
-  right: 10px;
-  background: url(../images/slider-prev-next.png) no-repeat -44px 0px; }
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px; }
 
 /* Alt for articles */
 #blog .bx-wrapper .bx-controls-direction a,
@@ -1177,6 +1316,14 @@ dl.accordion dd p:first-of-type {
   background: url(../images/slider-prev-next-alt.png) no-repeat -30px 0px; }
 
 
+/* 31 Layouts - Emails
+-------------------------------------------------------------- */
+#wrapper.email header,
+#wrapper.email section {
+  background: #fff; }
+
+#wrapper.email footer {
+  display: none; }
 
 /* 40 Responsive - Tablet (900px)
 -------------------------------------------------------------- */
@@ -1248,6 +1395,11 @@ dl.accordion dd p:first-of-type {
   /* 20 Modules - Panels */
   ul.pane-wrapper li {
     width: 45%; }
+
+  /* 21 Modules - Accordion
+  -------------------------------------------------------------- */
+  dl.accordion dd li {
+    width: 45%; }
 }
 
 /* 41 Responsive - Mobile (600px)
@@ -1266,7 +1418,7 @@ dl.accordion dd p:first-of-type {
   .col:first-child {
     margin-left: 0; }
 
-  .grid-1col, .grid-2col, .grid-3col, .grid-4col, .grid-5col, .grid-6col, .grid-7col, .grid-8col, .grid-9col, .grid-10col, .grid-11col, .grid-12col { width: 100%; }
+  .grid-1col, .grid-2col, .grid-3col, .grid-4col, .grid-5col, .grid-6col, .grid-7col, .grid-8col, .grid-9col, .grid-10col, .grid-11col, .grid-12col { width: 100%; margin-left: 0; }
 
   .text-cols-2 {
     -moz-column-count: 1;
@@ -1367,4 +1519,10 @@ dl.accordion dd p:first-of-type {
     width: 100% !important;
     text-align: left;
     display: inline-block; }
+
+  /* 21 Modules - Accordion
+  -------------------------------------------------------------- */
+  dl.accordion dd li {
+    width: 100%; }
 }
+

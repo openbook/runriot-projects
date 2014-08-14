@@ -57,6 +57,26 @@
 </section>
 <?php endif; ?>
 
+<?php if ($content['events']) : ?>
+<section id="events" class="cf bkg-white">
+  <div class="inner">
+  <h2 id="h2-events" class="with-icon">Selected events</h2>
+    <?php print $content['events']; ?>
+  <p class="pane-wrapper-more"><a class="btn" href="http://www.run-riot.com">See all events</a></p>
+  </div>
+</section>
+<?php endif; ?>
+
+<?php if ($content['blogs']) : ?>
+<section id="blog" class="cf">
+  <div class="inner">
+    <h2 id="h2-blog" class="with-icon">Fresh from our blog</h2>
+    <?php print $content['blogs']; ?>
+    <p class="pane-wrapper-more"><a class="btn" href="http://www.run-riot.com/articles/blogs">See all articles</a></p>
+  </div>
+</section>
+<?php endif; ?>
+
 <?php if ($content['latestprojects']) : ?>
 <section id="latestprojects" class="cf">
   <div class="inner">

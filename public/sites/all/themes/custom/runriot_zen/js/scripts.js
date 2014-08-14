@@ -4,6 +4,7 @@ $(document).ready(function () {
     articleslider();
     imageslider();
     maximiseAnchor();
+    popup();
 });
 
 
@@ -43,13 +44,15 @@ function accordion() {
 	  });
 }
 
+
+
  
 /*
 	Sliders for articles
 */
 function articleslider() {
 	$('ul.articleslider').bxSlider({
-	  minSlides: 3,
+	  minSlides: 1,
 	  maxSlides: 3,
 	  slideWidth: 360,
 	  slideMargin: 10,
@@ -90,5 +93,48 @@ function maximiseAnchor(){
 		}
 	})
 }
+
+
+/*
+	Popups
+*/
+function popup() {
+    $(".popup").bind("click", function () {
+        var href = $(this).attr("href");
+        jQuery.ajax({
+            url: href,
+            success: function (result) {
+                var html = $.parseHTML(result);
+                var content = $(html).find("#container");
+                $("#overlay").empty();
+                $("#overlay-content").empty();
+                $("#overlay").fadeIn();
+                 $("#overlay-content").fadeIn(function () {
+                    $("#overlay-content").html(content);
+                    $("#overlay-content").prepend('<p id="closewin"><a href="#">Close</a></p>');
+                    $("#closewin a").bind("click", function () {
+                        $("#overlay").fadeOut();
+                        $("#overlay-content").fadeOut();
+                        return false;
+                    });
+                });
+
+            },
+        });
+        return false;
+    });
+}
+ 
+
+/*
+	Smooth scrolling
+*/
+var $root = $('html, body');
+$('li#nc-joinus a').click(function() {
+    $root.animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    return false;
+});
 
 

@@ -68,8 +68,10 @@
       <div id="footer-contact">
         <h2>Contact us</h2>
         <p>Run Riot Projects<br>
-        Platform 1. Village Underground<br>
-        54 Holywell Lane. London EC2A 3PQ</p>
+        Platform 1<br>
+        Village Underground<br>
+        54 Holywell Lane<br>
+        London EC2A 3PQ</p>
 
         <nav id="nav-social">
           <ul>

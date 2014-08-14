@@ -1,6 +1,6 @@
 /*
  * THEME for Run Riot Projects
- * 
+ *
  * CONTENTS
  * 00 Imports
  * 01 Skeleton
@@ -17,29 +17,33 @@
  * 16 Sections - Featured
  * 20 Modules - Panels (featured content)
  * 21 Modules - Accordion
+ * 22 Modules - Popups
  * 30 JQuery - BXSlider
+ * 31 Layouts - Emails
  * 40 Responsive - Tablet (900px)
  * 41 Responsive - Mobile (600px)
  *
  * COLORS
- * Pale pink: 	#fff2ed
- * Blue:		#023059
- * Orange: 		#ff6e00
+ * Orange: 			#ff6e00
+ * Orange (mid): 	#fbe8e0
+ * Orange (light): 	#fcf7f3
+ * Blue:			#023059
+ * Blue (light):	#9aacbd
  *
  */
- 
+
 
 
 /* 00 Imports
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 @import "reset.css";
-@import url("//hello.myfonts.net/count/2b9de7");
-@font-face {font-family: 'DINCondensed-Regular';src: url('../fonts/2B9DE7_0_0.eot');src: url('../fonts/2B9DE7_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B9DE7_0_0.woff') format('woff'),url('../fonts/2B9DE7_0_0.ttf') format('truetype');} 
-@font-face {
-	font-family: 'DINCondensed-Light';src: url('webfonts/2B9DE7_1_0.eot');src: url('../fonts/2B9DE7_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B9DE7_1_0.woff') format('woff'),url('../fonts/2B9DE7_1_0.ttf') format('truetype');}
+@import url("//hello.myfonts.net/count/2ba82d");
+@font-face {font-family: 'DINNextLTPro-LightCondensed';src: url('../fonts/2BA82D_0_0.eot');src: url('../fonts/2BA82D_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2BA82D_0_0.woff') format('woff'),url('../fonts/2BA82D_0_0.ttf') format('truetype');}
+@font-face {font-family: 'DINNextLTPro-Condensed';src: url('../fonts/2BA82D_1_0.eot');src: url('../fonts/2BA82D_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2BA82D_1_0.woff') format('woff'),url('../fonts/2BA82D_1_0.ttf') format('truetype');}
+
 
 /* 01 Skeleton
--------------------------------------------------------------- */	 
+-------------------------------------------------------------- */
 body {
 	background: #023059;
 	line-height: 1.8em; }
@@ -47,9 +51,9 @@ body {
 #wrapper {
 	width: 100%;
 	overflow: hidden; }
-		
+
 header#masthead {
-	background: #fff2ed;
+	background: #fcf7f3;
 	height: 200px; }
 
 .inner {
@@ -57,7 +61,7 @@ header#masthead {
 	margin: 0 auto;
 	padding: 1em;
 	position: relative; }
-	
+
 footer {
 	padding: 30px 0;
 	float: left;
@@ -66,31 +70,31 @@ footer {
 .grid { }
 
 .col {
-	margin:0 0 1% 1.6%;
+	margin:0 0 1% 2.5%;
 	float: left;
 	display: block; }
-	
+
 .col:first-child {
 	margin-left: 0; }
 
-.grid-1col { 	width: 6.866%; }
-.grid-2col { 	width: 15.33%; }
-.grid-3col { 	width: 23.8%; }
-.grid-4col { 	width: 32.26%; }
-.grid-5col { 	width: 40.73%; }		
-.grid-6col { 	width: 49.2%; }
-.grid-7col { 	width: 57.66%; }
-.grid-8col { 	width: 66.13%; }
-.grid-9col { 	width: 74.6%; }
-.grid-10col { 	width: 83.06%; }
-.grid-11col { 	width: 91.53%; }
-.grid-12col { 	width: 100%; }
+.grid-1col { 	width: 6.04166666667%; }
+.grid-2col { 	width: 14.5833333333%; }
+.grid-3col { 	width: 23.125%; }
+.grid-4col { 	width: 31.6666666667%; }
+.grid-5col { 	width: 40.2083333333%; }
+.grid-6col { 	width: 48.75%; }
+.grid-7col { 	width: 57.2916666667%; }
+.grid-8col { 	width: 65.8333333333%; }
+.grid-9col { 	width: 74.375%; }
+.grid-10col {	width: 82.9166666667%; }
+.grid-11col {	width: 91.4583333333%; }
+.grid-12col { 	width: 100%; margin-left: 0; }
 
 .mobile-show {
 	display: none; }
-	
+
 /* 02 Header
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 header #branding {
 	position: absolute;
 	width: 356px;
@@ -114,7 +118,7 @@ header #branding a img {
 
 header #branding:hover {
 	margin-top: 0; }
-		
+
 header nav#nav-main {
 	float: left;
 	width: 10em;
@@ -143,9 +147,11 @@ a#navibar i.navmenu {
 	top: 50%;
 	margin-top: -2px; }
 
+nav#nav-main {}
+
 nav#nav-main ul {
 	display: none;
-	background: #fbe8e0; 
+	background: #fbe8e0;
 	/*background: #023059; */
 	z-index: 9999;
 	width: 160px;
@@ -159,16 +165,16 @@ nav#nav-main ul li {
 nav#nav-main ul li a {
 	display: block;
 	width: 120px;
-	padding: .25em 1em; }		
-	
+	padding: .25em 1em; }
+
 nav#nav-main ul li a:hover {
 	text-decoration: none;
 	color: #fbe8e0;
 	background: #ff6e00; }
-	
+
 header nav#nav-connect {
 	float: right;
-	margin: 1em; }
+	margin: 1em;  }
 
 nav#nav-connect ul li {
 	float: left;
@@ -190,13 +196,13 @@ nav#nav-connect ul li {
 
 nav#nav-connect ul li#nc-joinus {
 	width: auto;
-	padding: 0 1em;
 	text-indent: 0; }
 
 nav#nav-connect ul li a {
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #ff6e00;
+	padding: 0 1em;
 	display: block;
 	height: 100%;
 	width: 100%; }
@@ -206,20 +212,20 @@ nav#nav-connect ul li#nc-facebook  { 		background: #fbe8e0 url('../images/nc-fac
 nav#nav-connect ul li#nc-youtube { 			background: #fbe8e0 url('../images/nc-youtube.png') center; }
 nav#nav-connect ul li#nc-twitter:hover { 	background: #ff6e00 url('../images/ns-twitter-h.png') center; }
 nav#nav-connect ul li#nc-facebook:hover  { 	background: #ff6e00 url('../images/ns-facebook-h.png') center; }
-nav#nav-connect ul li#nc-youtube :hover{ 	background: #ff6e00 url('../images/ns-youtube-h.png') center; }
+nav#nav-connect ul li#nc-youtube:hover{ 	background: #ff6e00 url('../images/ns-youtube-h.png') center; }
 nav#nav-connect ul li#nc-joinus:hover { 	background: #ff6e00; }
 nav#nav-connect ul li#nc-joinus:hover a { 	color: #fff; }
 
 
 /* 03 Footer
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 footer nav#nav-sitemap {
 	float: left; }
 
 footer #footer-contact {
 	float: right;
 	padding-right: 50px; }
-	
+
 footer #footer-contact nav#nav-social {
 	float: right; }
 
@@ -237,7 +243,7 @@ footer #footer-contact h2 {
 footer #footer-contact p {
 	font-size: .85em;
 	margin-top: .85em; }
-	
+
 footer #branding-signoff {
 	position: absolute;
 	width:90px;
@@ -291,7 +297,7 @@ nav#nav-social ul li a {
 	display: block;
 	height: 100%;
 	width: 100%; }
-	
+
 nav#nav-social ul li#ns-twitter { 	background: url('../images/ns-twitter.png') center; }
 nav#nav-social ul li#ns-facebook  { background: url('../images/ns-facebook.png') center; }
 nav#nav-social ul li#ns-youtube { 	background: url('../images/ns-youtube.png') center; }
@@ -300,10 +306,10 @@ nav#nav-social ul li#ns-facebook:hover  { 	background: url('../images/ns-faceboo
 nav#nav-social ul li#ns-youtube :hover{ 	background:  url('../images/ns-youtube-h.png') center; }
 
 /* 04 Type and utility classes
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 body {
 	color: #023059;
-	font-family: DINCondensed-Light, Arial, Sans-serif; }	
+	font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -311,17 +317,17 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1em;
 	margin-bottom: .2em;
 	font-weight: normal; }
-	
+
 p {
 	line-height: 1.3em;
 	margin-top: 0;
 	margin-bottom: .8em; }
-	
-a, a:active, a:visited, a:hover { 
+
+a, a:active, a:visited, a:hover {
 	color: #ff6e00;
 	text-decoration: none; }
 
-a:hover { 
+a:hover {
 	text-decoration: underline; }
 
 
@@ -338,7 +344,7 @@ input[type="submit"] {
 	text-decoration: none;
 	margin: 1em 0;
 	font-size: 1.2em;
-	font-family: DINCondensed-Light, Arial, Sans-serif;
+	font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif;
 	-moz-transition: all .5s;
 	-webkit-transition: all .5s;
 	-o-transition: all .5s;
@@ -356,13 +362,13 @@ input[type="submit"]:hover {
 	background: #d86711; }
 
 p a {
-	font-size: 1em !important; }	
+	font-size: 1em !important; }
 
 input,
 label {
 	color: #023059;
-	font-family: DINCondensed-Light, Arial, Sans-serif; }	
-	
+	font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
+
 section ul,
 section li {
 	padding: 0;
@@ -374,7 +380,7 @@ hr {
 	margin-top: 3em;
 	padding-top: 2em;
 	border-top: 1px solid #023059; }
-	
+
 .text-cols-2 {
 	display: inline-block;
 	vertical-align: text-top;
@@ -383,7 +389,8 @@ hr {
 	-webkit-column-count: 2;
 	-webkit-column-gap: 3.2%;
 	column-count: 2;
-	column-gap: 3.2%; }
+	column-gap: 3.2%;
+	text-align: left; }
 
 .text-cols-2 p {
 	margin: 0; }
@@ -393,26 +400,29 @@ a.download-pdf {
 	padding-left: 30px;
 	display: inline-block; }
 
-/* H2 with icons */	
+a.download-pdf:hover {
+	text-decoration: underline; }
+
+/* H2 with icons */
 h2.with-icon {
 	padding-top: 70px;
 	background-repeat: no-repeat;
 	background-position: center top; }
 
-h2.icon-only {		text-indent: -9999em; }	
-h2#h2-media {		background-image: url('../images/icon-h2-media.png'); height: 60px; padding: 0; }	
+h2.icon-only {		text-indent: -9999em; }
+h2#h2-media {		background-image: url('../images/icon-h2-media.png'); height: 60px; padding: 0; }
 h2#h2-blog {		background-image: url('../images/icon-h2-blog.png'); padding-top: 60px; }
 h2#h2-events {		background-image: url('../images/icon-h2-events.png'); padding-top: 64px; }
 
 /* 05 Forms
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 form {
 	width: 100%; }
 
 form label {
 	width: 100%;
 	margin-bottom: 1em; }
-	
+
 form input {
 	width: 96%;
 	background: #e3e8ec;
@@ -430,7 +440,7 @@ form input {
 	width: 100%; }
 
 #join form#form-join label span {
-	text-transform: uppercase; 
+	text-transform: uppercase;
 	font-size: .85em; }
 
 #join form label#form-join-fname,
@@ -445,7 +455,7 @@ form input {
 	float: left;
 	clear: left;
 	width: 100%; }
-	
+
 #join form ul.checkbox-columns li {
 	width: 50%;
 	float: left;
@@ -455,12 +465,12 @@ form input {
 	text-transform: none;
 	font-size: 1.2em; }
 
-/* Custom checkboxes */ 
+/* Custom checkboxes */
 form input[type="checkbox"]:not(:checked),
 form input[type="checkbox"]:checked {
   position: absolute;
   left: -9999px; }
-  
+
 form input[type="checkbox"]:not(:checked) + label,
 form input[type="checkbox"]:checked + label {
   position: relative;
@@ -489,7 +499,7 @@ form input[type="checkbox"]:checked + label:after {
 form input[type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
   transform: scale(0); }
-  
+
 form input[type="checkbox"]:checked + label:after {
   opacity: 1;
   transform: scale(1); }
@@ -505,9 +515,9 @@ form input[type="checkbox"]:checked + label:after {
 
 
 /* 10 Sections - Defaults
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 section {
-	background: #fff2ed;
+	background: #fcf7f3;
 	padding: 3em 0 2em;
 	text-align: center; }
 
@@ -518,19 +528,19 @@ section.no-padding-bottom {
 	padding-bottom: 0; }
 
 section.border-bottom {
-	border-bottom: 1px solid #023059; }	
-	
+	border-bottom: 1px solid #023059; }
+
 section.bkg-white {
 	background: #fff; }
 
 section.rule-bottom .inner {
-	border-bottom: 1px solid #023059; }		
-	
+	border-bottom: 1px solid #023059; }
+
 section header {
 	text-align: center; }
 
 section h2 {
-	font-family: DINCondensed-Regular, Arial, Sans-serif;
+	font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
 	width: 100%;
 	text-align: center;
 	margin: 0 0 1em;
@@ -559,7 +569,7 @@ section#head p {
 	font-size: 1.7em; }
 
 section#head .grid p strong {
-	font-family: 'DINCondensed-Regular', Arial, Sans-serif;
+	font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif;
 	font-weight: normal; }
 
 /* Page main heading area*/
@@ -585,35 +595,35 @@ section#head header h2.sub-header {
 
 section#head header h1.sub-header {
 	font-size: 2.25em;
-	font-family: DINCondensed-Light, Arial, Sans-serif; }
+	font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
 
 section#head header h2.sub-header {
 	margin-top: .75em;
-	font-family: DINCondensed-Light, Arial, Sans-serif; }
-	
+	font-family: DINNextLTPro-LightCondensed, Arial, Sans-serif; }
+
 section#head h2.inline {
 	display: inline;
 	text-transform: none !important;
 	font-size: 1.7em !important;
-	font-family: 'DINCondensed-Regular', Arial, Sans-serif !important; }
+	font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif !important; }
 
 section#head p.inline {
-	display: inline; }	
+	display: inline; }
 
 section#head header.full-width {
 	width: 100%; }
-	
+
 /* Section typography */
 section.h2-no-margin-bottom h2 {
 	margin-bottom: 0; }
 
 section.p-large p {
 	font-size: 2.25em; }
-	
+
 section.p-med p,
 #trainer-profile p {
 	font-size: 1.5em; }
-	
+
 
 /* 11 Sections - Sliders
 -------------------------------------------------------------- */
@@ -635,14 +645,14 @@ section#slides {
 section#slides ul li img {
 	width: 100% !important; }
 
-	
+
 section#slides li .caption {
 	position: absolute;
 	z-index: 9999;
 	display: block;
 	width: 100%;
 	background: rgba(255,255,255,.8);
-	bottom: 0; }	
+	bottom: 0em; }
 
 /* 12 Sections - Course
 -------------------------------------------------------------- */
@@ -657,7 +667,7 @@ ul#course-detail li {
 	margin: 2% 3% 0;
 	font-size: 1.75em;
 	line-height: 1.4em;
-	height: 10em; }
+	height: 8em; }
 
 ul#course-detail li:nth-child(1),
 ul#course-detail li:nth-child(2) {
@@ -668,7 +678,7 @@ ul#course-detail li h3 {
 	margin-bottom: 1em;
 	text-indent: -9999em;
 	background-position: center !important; }
-	
+
 ul#course-detail li h3#course-detail-time			{ background: url('../images/course/course-detail-time.png') no-repeat; }
 ul#course-detail li h3#course-detail-location 		{ background: url('../images/course/course-detail-location.png') no-repeat; }
 ul#course-detail li h3#course-detail-availability	{ background: url('../images/course/course-detail-availability.png') no-repeat; }
@@ -691,12 +701,11 @@ ul#ticket-options p {
 	font-size: 1.5em; }
 
 ul#ticket-options p {
-	font-family: 'DINCondensed-Regular', Arial, Sans-serif; }
-
+	font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif; }
 
 ul#ticket-options li.sold-out p {
 	color: #d0d8df;
-	font-family: 'DINCondensed-Light', Arial, Sans-serif; }
+	font-family: 'DINNextLTPro-LightCondensed', Arial, Sans-serif; }
 
 ul#ticket-options li.sold-out p span {
 	color: #ff6e00; }
@@ -706,6 +715,9 @@ ul#ticket-options li.sold-out a.btn {
 	background: #fff;
 	border: 2px solid #ff6e00;
 	padding: .3em 4em; }
+
+ul#ticket-options li.sold-out a.btn:hover {
+	background: #fcf7f3; }
 
 /* Course nav */
 #course-browse	{
@@ -727,23 +739,22 @@ ul#ticket-options li.sold-out a.btn {
 	-webkit-transition: all .3s;
 	-o-transition: all .3s;
 	transition: all .3s; }
-	
+
 #course-browse a#prev-course { 		left: 14px; background: url('../images/arrow-left.png') no-repeat center; }
-#course-browse a#next-course { 		right: 14px; background: url('../images/arrow-right.png') no-repeat center; }	
 
 #course-browse a#prev-course:hover { left: 4px; opacity: .5; }
 #course-browse a#next-course:hover { right: 4px; opacity: .5; }
-	
-/* Course section */	
+
+/* Course section */
 section header.title-with-download {
 	display: block;
 	width: 100%;
 	max-width: 1200px;
 	padding: 0 1em;
 	margin: 0 auto; }
-	
+
 section header.title-with-download h2 {
-	text-align: left; 
+	text-align: left;
 	display: inline;
 	float: left;
 	width: auto;
@@ -751,13 +762,13 @@ section header.title-with-download h2 {
 	padding-right: .6em;
 	font-size: 2em;
 	line-height: 1em;
-	border-right: 2px solid #023059; }	
-	
+	border-right: 2px solid #023059; }
+
 section header.title-with-download p {
 	float: left;
 	line-height: 2em;
 	margin: 0;
-	font-size: 1.25em; }	
+	font-size: 1.25em; }
 
 section header.title-with-download p a {
 	color: #9aacbd;
@@ -765,17 +776,19 @@ section header.title-with-download p a {
 
 /* Trainer */
 section#trainer header h2 {
-	margin-bottom: 0; }
+	margin-bottom: 0;
+	font-size: 2.25em; }
 
 section#trainer header p {
 	display: inline-block;
 	padding-top: .5em;
-	margin: .5em 0 2em;
+	margin: .5em 0 1.5em;
+	font-size: 1.85em;
 	border-top: 1px solid #023059; }
 
 .trainer-image {
 	margin-bottom: 1.5em; }
-	
+
 .trainer-image img {
 	width: 100%;
 	height: auto; }
@@ -787,10 +800,17 @@ ul.trainer-media li {
 
 ul.trainer-media li.highlight {
 	width: 98%; }
-	
+
 ul.trainer-media li strong{
 	font-weight: normal;
-	font-family: 'DINCondensed-Regular', Arial, Sans-serif; }	
+	font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif; }
+
+#trainer-profile .grid-8col {
+	padding-bottom: 3em;
+	margin-bottom: 5em;
+	border-bottom: 1px solid #023059; }
+
+
 
 /* 13 Sections - Contact
 -------------------------------------------------------------- */
@@ -801,11 +821,11 @@ section#head.contact .grid .grid-6col:first-child {
 	border-right: 1px solid #023059;
 	width: 40%;
 	padding-right: 10%; }
-	
+
 section#head.contact .grid .grid-6col:nth-child(2) {
 	width:40%;
 	float: right; }
-	
+
 section#head.contact h2 {
 	display: inline-block;
 	margin: 0;
@@ -822,8 +842,8 @@ section#head.contact p a {
 
 section#head.contact .grid h2,
 section#head.contact .grid p strong {
-	font-family: 'DINCondensed-Regular', Arial, Sans-serif;
-	font-weight: normal; }	
+	font-family: 'DINNextLTPro-Condensed', Arial, Sans-serif;
+	font-weight: normal; }
 
 span.r-arrow {
 	background: url('../images/arrow-right.png') no-repeat;
@@ -839,8 +859,8 @@ section#join {
 
 section#join p {
 	font-size: 1.85em; }
-	
-	
+
+
 /* 15 Sections - How we work
 -------------------------------------------------------------- */
 section#how-work {
@@ -876,25 +896,28 @@ section#how-work .grid-8col {
 	border-top: 1px solid #023059 !important;
 	padding-top: 3em;
 	text-align: left; }
-	
-/* 16 Sections - Featured	
+
+/* 16 Sections - Featured
 -------------------------------------------------------------- */
 section#featured .inner {
 	width: 50%; }
 
 section#featured p {
 	font-size: 2em; }
-	
+
 section#featured .times p {
 	font-size: 1.75em;
 	margin: 0; }
 
 section#featured .times {
 	margin-bottom: 1.5em; }
-	
+
 section#featured p a {
 	font-size: .6em !important; }
-			
+
+
+
+
 /* 20 Modules - Panels (featured content)
 -------------------------------------------------------------- */
 ul.pane-wrapper {  }
@@ -926,7 +949,10 @@ ul.pane-wrapper li .pane-thumb .meta li {
 	width: 100%;
 	padding: .2em;
 	margin-bottom: 2px;
-	text-transform: uppercase; }
+	font-size: 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
 
 ul.pane-wrapper li .pane-thumb .project-type {
 	left: 0;
@@ -935,23 +961,26 @@ ul.pane-wrapper li .pane-thumb .project-type {
 	width: 140px;
 	height: 140px; }
 
-.bkg-white ul.pane-wrapper li .pane-thumb .project-type { 
+.bkg-white ul.pane-wrapper li .pane-thumb .project-type {
 	background: url('../images/project-type-bkg-white.png') no-repeat top left;  }
-	
+
 ul.pane-wrapper li .pane-thumb .project-type p {
 	margin: 0;
 	font-size: 1.2em;
 	text-align: left;
 	text-transform: uppercase; }
 
-
 ul.pane-wrapper li h3 {
-	text-transform: uppercase; }
+	text-transform: uppercase;
+	font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
+	font-size: 1.5em;
+	margin-bottom: 0em; }
 
 ul.pane-wrapper li .pane-desc a {
 	color: #ff6e00;
 	text-decoration: none;
-	position: relative; }
+	position: relative;
+	text-transform: uppercase; }
 
 ul.pane-wrapper li .pane-desc a:after {
 	content: " \003e";
@@ -962,11 +991,23 @@ ul.pane-wrapper li .pane-desc a:after {
 ul.pane-wrapper li .pane-desc a.btn:after {
 	content: ""; }
 
+ul.pane-wrapper li .pane-desc p.meta {
+	font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
+	text-transform: uppercase;
+	color: #9aacbd;
+	margin-bottom: 0; }
+
 ul.pane-wrapper li img {
 	width: 100% !important;
 	max-width: 600px; }
-	
-p.meta-date {
+
+ul.pane-wrapper li .pane-desc p {
+	margin-top: .75em; }
+
+ul.pane-wrapper li .pane-desc p.meta {
+	margin-top: 0; }
+
+ul.pane-wrapper li .pane-desc p.meta-date {
 	color: #ff6e00;
 	background: url('../images/icon-calendar.png') no-repeat 0 2px;
 	padding-left: 30px;
@@ -977,7 +1018,7 @@ p.meta-date {
 
 #latestprojects ul.pane-wrapper li .pane-desc {
 	margin-top: 1.5em; }
-	
+
 #latestprojects ul.pane-wrapper li .pane-desc a {
 	background: #ff6e00;
 	color: #fff;
@@ -989,37 +1030,37 @@ p.meta-date {
 
 #latestprojects ul.pane-wrapper li.max {
 	cursor: pointer; }
-	
-	
+
 /* 21 Modules - Accordion
 -------------------------------------------------------------- */
-section.accordion-wrapper { 
+section.accordion-wrapper {
 	text-align: left; }
 
 .accordion-wrapper .inner {
 	max-width: none;
 	padding: 0; }
-	
-	
+
 dl.accordion {
 	float: left;
 	width: 100%; }
 
 dl.accordion dt {
-	font-size: 1.4em;
-	position: relative; }
-	
+	font-size: 1.75em;
+	position: relative;
+	font-family: DINNextLTPro-Condensed, Arial, Sans-serif;
+	cursor: pointer;  }
+
 dl.accordion div {
 	max-width: 1200px;
 	margin: 0 auto;
-	position: relative; }		
-	
+	position: relative; }
+
 dl.accordion dt:first-of-type {
 	border-top: none; }
 
 dl.accordion dt a {
 	color: #023059;
-	padding: .3em 40px .5em .5em;
+	padding: .3em 40px .3em .5em;
 	text-decoration: none;
 	width: auto;
 	display: block;
@@ -1043,7 +1084,7 @@ dl.accordion dt.active span {
 
 dl.accordion dt.active a {
 	border-bottom: none }
-	
+
 dl.accordion dd {
 	padding: 2em 3em;
 	margin: 0;
@@ -1053,11 +1094,62 @@ dl.accordion dd {
 
 dl.accordion dd div {
 	max-width: 1140px; }
-	
+
 dl.accordion dd p:first-of-type {
 	margin-top: 0; }
-	
-	
+
+dl.accordion dd p,
+dl.accordion dd li {
+	color: #fff;
+	font-size: 1.4em; }
+
+dl.accordion dd ul {
+	width: 100%;
+	margin-bottom: 2em;
+	float: left; }
+
+dl.accordion dd li {
+	width: 28%;
+	padding: .2em 4% .2em 0;
+	float: left;
+	font-size: 1.6em;
+	font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
+
+
+/*22 Modules - Popups
+-------------------------------------------------------------- */
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.6);
+	filter: alpha(opacity=60);
+	z-index: 1000000;
+	display: none; }
+
+#overlay-content {
+	position: fixed;
+	top: 20%;
+	left: 20%;
+	height: 60%;
+	width: 60%;
+	background: #fff;
+	z-index: 1100000;
+	overflow: scroll;
+	display: none; }
+
+#closewin a {
+	position: absolute;
+	z-index: 90;
+	right: 0;
+	top: 0;
+}
+
+#overlay-content #container {
+	min-width: 400px; }
+
 /* 30 JQuery - BXSlider
 -------------------------------------------------------------- */
 /**
@@ -1070,14 +1162,37 @@ dl.accordion dd p:first-of-type {
  * http://bxcreative.com
  */
 
-.bx-wrapper { position: relative;	margin: 0 auto 30px; padding: 0;	*zoom: 1; }
-.bx-wrapper img { max-width: 100%; display: block; }
-.bx-wrapper .bx-viewport { -webkit-transform: translatez(0); -moz-transform: translatez(0); -ms-transform: translatez(0); -o-transform: translatez(0); transform: translatez(0); }
-.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto { position: absolute; bottom: -30px; width: 100%; background: #fff2ed; }
+/** RESET AND LAYOUT
+===================================*/
+.bx-wrapper {
+	position: relative;
+	margin: 0 auto 60px;
+	padding: 0;
+	*zoom: 1; }
 
+.bx-wrapper img {
+	max-width: 100%;
+	display: block; }
+
+/** THEME
+===================================*/
+.bx-wrapper .bx-viewport {
+	-webkit-transform: translatez(0);
+	-moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    transform: translatez(0); }
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+	position: absolute;
+	bottom: -50px;
+	width: 100%; }
+
+/* LOADER */
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif) center center no-repeat #fff;
+	background: url('../images/ajax-loader.gif') center center no-repeat;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -1085,12 +1200,14 @@ dl.accordion dd p:first-of-type {
 	left: 0;
 	z-index: 2000; }
 
+/* PAGER */
 .bx-wrapper .bx-pager {
 	text-align: center;
 	font-size: .85em;
+	font-family: Arial;
 	font-weight: bold;
 	color: #666;
-	position: absolute; }
+	padding-top: 20px; }
 
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
@@ -1110,9 +1227,23 @@ dl.accordion dd p:first-of-type {
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg) }
 
-.bx-wrapper .bx-prev:hover,
+.bx-wrapper .bx-pager.bx-default-pager a:hover {	background: #fbe8e0; }
+.bx-wrapper .bx-pager.bx-default-pager a.active {	background: #ff6e00; }
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev {
+	left: 10px;
+	background: url(../images/slider-prev-next.png) no-repeat 0 0px; }
+
+.bx-wrapper .bx-next {
+	right: 10px;
+	background: url(../images/slider-prev-next.png) no-repeat -44px 0px; }
+
+.bx-wrapper .bx-prev:hover {
+	background-position: 0 0; }
+
 .bx-wrapper .bx-next:hover {
-	opacity: .6; }
+	background-position: -43px 0; }
 
 .bx-wrapper .bx-controls-direction a {
 	position: absolute;
@@ -1123,17 +1254,25 @@ dl.accordion dd p:first-of-type {
 	height: 88px;
 	text-indent: -9999px;
 	z-index: 9999; }
-	
-.bx-wrapper .bx-pager.bx-default-pager a:hover {	background: #fbe8e0; }
-.bx-wrapper .bx-pager.bx-default-pager a.active {	background: #ff6e00; }
 
-.bx-wrapper .bx-prev {
-	left: 10px;
-	background: url(../images/slider-prev-next.png) no-repeat 0 0px; }
+.bx-wrapper .bx-controls-direction a.disabled {
+	display: none; }
 
-.bx-wrapper .bx-next {
-	right: 10px;
-	background: url(../images/slider-prev-next.png) no-repeat -44px 0px; }
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: #666\9;
+	background: rgba(80, 80, 80, 0.75);
+	width: 100%; }
+
+.bx-wrapper .bx-caption span {
+	color: #fff;
+	font-family: Arial;
+	display: block;
+	font-size: .85em;
+	padding: 10px; }
 
 /* Alt for articles */
 #blog .bx-wrapper .bx-controls-direction a,
@@ -1146,7 +1285,7 @@ dl.accordion dd p:first-of-type {
 	height: 55px;
 	text-indent: -9999px;
 	z-index: 9999; }
-	
+
 #blog .bx-wrapper .bx-prev,
 #events .bx-wrapper .bx-prev {
 	left: -40px;
@@ -1155,79 +1294,92 @@ dl.accordion dd p:first-of-type {
 #blog .bx-wrapper .bx-next,
 #events .bx-wrapper .bx-next {
 	right: -40px;
-	background: url(../images/slider-prev-next-alt.png) no-repeat -30px 0px; }	
+	background: url(../images/slider-prev-next-alt.png) no-repeat -30px 0px; }
 
 
+/* 31 Layouts - Emails
+-------------------------------------------------------------- */
+#wrapper.email header,
+#wrapper.email section {
+	background: #fff; }
+
+#wrapper.email footer {
+	display: none; }
 
 /* 40 Responsive - Tablet (900px)
 -------------------------------------------------------------- */
 @media all and (max-width: 900px) {
-	
-	/* 02 Header */	
+
+	/* 02 Header */
 	header #branding {
 		width: 296px;
 		height: 148px;
 		margin-left: -148px; }
-	
+
 	nav#nav-connect ul li {
 		margin-left: 10px; }
-	
+
 	#nav-connect ul li#nc-joinus {
 		margin-top: 10px;
 		clear: left !important;
 		float: right; }
-	
+
 	/* 05 Forms */
 	form label {
 		text-align: left; }
-	
+
 	#join form#form-join label,
 	#join form#form-join label span {
 		clear: none; }
-	
+
 	#join form#form-join label span {
-		text-transform: uppercase; 
+		text-transform: uppercase;
 		font-size: .85em; }
-	
+
 	#join form label#form-join-fname,
 	#join form label#form-join-lname {
 		width: 20% !important;
 		margin-right: 2% !important;
 		margin-left: 0; }
-		
+
 	#join form label#form-join-email {
 		width: 56%;
 		margin: 0;	}
-	
+
 	#join form ul.checkbox-columns {
 		float: none;
 		width: 60%;
-		margin: 3em auto; } 
-	
+		margin: 3em auto; }
+
 	/* 14 Sections - Join */
 	section#join .grid-4col {
 		width: 100%;
 		margin: 0;
 		text-align: center; }
-	
+
 	section#join .grid-4col p {
 		display: inline; }
-	
+
 	section#join .grid-4col p br,
 	section#join .grid-4col p span.r-arrow {
 		display: none; }
-	
+
 	section#join form {
-		margin-top: 2em; }	
-		
-	
+		margin-top: 2em; }
+
+
 	/* 15 Sections - How we work */
 	ul#how-we-work li {
 		width: 45%;
 		margin-bottom: 2em; }
-	
+
 	/* 20 Modules - Panels */
 	ul.pane-wrapper li {
+		width: 45%; }
+
+	/* 21 Modules - Accordion
+	-------------------------------------------------------------- */
+	dl.accordion dd li {
 		width: 45%; }
 }
 
@@ -1235,20 +1387,20 @@ dl.accordion dd p:first-of-type {
 -------------------------------------------------------------- */
 @media all and (max-width: 600px) {
 
-	/* 01 Skeleton */	
+	/* 01 Skeleton */
 	#wrapper {
-		min-width: 320px; }		
-	
+		min-width: 320px; }
+
 	.col {
 		margin:0 0 1% 0%;
 		float: left;
 		display: block; }
-		
+
 	.col:first-child {
 		margin-left: 0; }
-	
-	.grid-1col, .grid-2col, .grid-3col, .grid-4col, .grid-5col, .grid-6col, .grid-7col, .grid-8col, .grid-9col, .grid-10col, .grid-11col, .grid-12col { width: 100%; }
-	
+
+	.grid-1col, .grid-2col, .grid-3col, .grid-4col, .grid-5col, .grid-6col, .grid-7col, .grid-8col, .grid-9col, .grid-10col, .grid-11col, .grid-12col { width: 100%; margin-left: 0; }
+
 	.text-cols-2 {
 		-moz-column-count: 1;
 		-moz-column-gap: 0;
@@ -1256,96 +1408,103 @@ dl.accordion dd p:first-of-type {
 		-webkit-column-gap: 0;
 		column-count: 1;
 		column-gap: 0; }
-		
+
 	.mobile-show {
 		display: inline-block; }
-	
-	/* 02 Header */	
+
+	/* 02 Header */
 	a#navibar span,
 	header nav#nav-connect {
 		display: none;	}
-	
+
 	header #branding {
 		right: 0;
 		left: auto;
 		width: 283px;
 		height: 192px;
 		background: url('../images/run-riot-projects-m.png'); }
-		
+
 	header #branding img {
-		display: none; 	}	
-	
-	/* 03 Footer */	
+		display: none; 	}
+
+	/* 03 Footer */
 	footer nav#nav-sitemap {
 		float: left;
 		width: 80%;
 		margin: 0 10%; }
-	
+
 	footer #footer-contact,
 		footer #branding-signoff {
 		display: none; }
-		
+
 	footer nav#nav-sitemap li {
 		width: 50%;
 		float: left; }
-	
+
 	footer nav#nav-sitemap li.secondary {
 		display: none; }
-	
+
 	/* 05 Forms */
 	form label {
 		text-align: left; }
-	
+
 	#join form#form-join label,
 	#join form#form-join label span {
 		clear: none; }
-	
+
 	#join form#form-join label span {
-		text-transform: uppercase; 
+		text-transform: uppercase;
 		font-size: .85em; }
-	
+
 	#join form label#form-join-fname,
 	#join form label#form-join-lname,
 	#join form label#form-join-email {
 		width: 100% !important;
 		margin: 0 0 1.5em 0 !important; }
-	
+
 	#join form ul.checkbox-columns {
 		width: 50%; }
-	
+
 	#join form ul.checkbox-columns li {
 		clear: left;
 		width: 100%; }
-	
-	/* 10 Sections - Defaults */	
+
+	/* 10 Sections - Defaults */
 	section#head header {
 		width: 100%;  }
-		
+
 	/* 12 Sections - Course */
 	ul#ticket-options li {
 	 	float: left;
-	 	width: 100%; 
+	 	width: 100%;
 	 	clear: left;
 	 	margin-bottom: 3em;
 	 	border: none !important; }
-	
+
 	/* 14 Sections - Join */
 	section#join .grid-4col p:after {
 		content: ". "; 	}
-	
+
 	/* 15 Sections - How we work */
 	ul#how-we-work li {
 		width: 100%;
 		margin-bottom: 3em;
 		display: block; }
-	
+
 	/* 20 Modules - Panels */
 	ul.pane-wrapper li {
 		width: 100%;
-		margin-bottom: 3em; }  
+		margin-bottom: 3em; }
 
 	ul.articleslider li {
-		width: 100% !important; 
+		width: 100% !important;
 		text-align: left;
-		display: inline-block; }					
+		display: inline-block; }
+
+	/* 21 Modules - Accordion
+	-------------------------------------------------------------- */
+	dl.accordion dd li {
+		width: 100%; }
 }
+
+@import "rroverride.css";

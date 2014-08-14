@@ -102,20 +102,48 @@ function runriot_mailinglist_signup_form($form, $form_state, $nid) {
     '#title' => t('Surname'),
     '#required' => TRUE,
   );
-
+  $form['dob'] = array(
+    '#type' => 'textfield',
+    '#title' => t('D.O.B'),
+    '#required' => FALSE,
+    '#description' => t('Please enter your d.o.b in the format dd/mm/yyyy'),
+  );
   $form['email'] = array(
     '#type' => 'textfield',
     '#title' => t('Email address'),
     '#required' => TRUE,
   );
+  $form['phone'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Phone number'),
+    '#required' => FALSE,
+  );
+  $form['occupation'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Occupation'),
+    '#required' => FALSE,
+  );
+  $form['postcode'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Postcode'),
+    '#required' => FALSE,
+  );
+
   $form['tickets'] = array(
     '#type' => 'checkboxes',
     '#options' => drupal_map_assoc(array(t('Full price'), t('Concessionary price'))),
     '#title' => t('Ticket option'),
   );
+  $form['required'] = array(
+    '#markup' => '<p>*Required fields</p>',
+  );
   $form['nid'] = array(
     '#type' => 'hidden',
     '#value' => $form_state['nid'],
+  );
+
+  $form['tandcs'] = array(
+    '#markup' => '<p>Thank you for joining us. Run-Riot Projects will process your data in accordance with the Data Protection Act 1998. For more information please refer to our privacy policy.</p>',
   );
 
   $form['submit'] = array(
@@ -161,6 +189,10 @@ function runriot_mailinglist_signup_form_submit(&$form, &$form_state) {
     "FNAME" => $form_state['values']['firstname'],
     "LNAME" => $form_state['values']['surname'],
     "MMERGE3" => $ticket_value,
+    "DOB" => $form_state['values']['dob'],
+    "PHONE" => $form_state['values']['phone'],
+    "OCCUPATION" => $form_state['values']['occupation'],
+    "POSTCODE" => $form_state['values']['postcode'],
   );
 
   $outcome = $mailchimp->lists->subscribe(
