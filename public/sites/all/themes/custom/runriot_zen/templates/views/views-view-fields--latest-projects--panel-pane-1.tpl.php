@@ -14,4 +14,3 @@
   <p><a class="btn" href="<?php print url("node/". $row->nid); ?>">Find out more</a></p>
 </div>
 </li>
-<?php dpm($row); ?>
