@@ -41,7 +41,7 @@ $concession_state = FALSE;
   <li class="sold-out">
     <h3>Full price</h3>
     <p>&pound;<?php print money_format($tickets['full']->display_price, 2);?> <span>Sold out</span></p>
-    <a href="/rr/mailinglist/nojs/<?php print $nid; ?>" class="btn btn-alt ctools-use-modal">Join waiting list</a>
+    <a href="/rr/mailinglist/nojs/<?php print $nid; ?>" class="btn btn-alt ctools-use-modal waitinglist-signup">Join waiting list</a>
   </li>
   <?php endif; ?>
 
@@ -55,7 +55,7 @@ $concession_state = FALSE;
   <li class="sold-out">
     <h3>Concessions <span class="tooltip"></span></h3>
     <p>&pound;<?php print money_format($tickets['concession']->display_price, 2);?> <span>Sold out</span></p>
-    <a href="/rr/mailinglist/nojs/<?php print $nid; ?>" class="btn btn-alt ctools-use-modal">Join waiting list</a>
+    <a href="/rr/mailinglist/nojs/<?php print $nid; ?>" class="btn btn-alt ctools-use-modal waitinglist-signup">Join waiting list</a>
   </li>
   <?php endif; ?>
 </ul>
