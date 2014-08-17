@@ -60,7 +60,7 @@
           <li><a href="<?php print url('node/23'); ?>">About</a></li>
           <li><a href="<?php print url('node/26'); ?>">Learning</a></li>
           <li><a href="<?php print url('node/27'); ?>">Magazine</a></li>
-          <li class="secondary"><a href="#">Terms &amp; Privacy</a></li>
+          <li class="secondary"><a href="<?php print url('node/108'); ?>">Terms &amp; Privacy</a></li>
         </ul>
       </nav>
 
