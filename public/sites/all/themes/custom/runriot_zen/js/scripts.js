@@ -5,6 +5,7 @@ $(document).ready(function () {
     imageslider();
     maximiseAnchor();
     toolTip();
+    trainerMedia();
 });
 
 
@@ -35,10 +36,10 @@ function mainnav(){
 */
 function accordion() {
 	var cur_stus;
-	 
+
 	$('.accordion dd').hide();
 	$('.accordion dt').attr('stus', '');
-	
+
 	$('.accordion dt').click(function(){
 	    cur_stus = $(this).attr('stus');
 	    if(cur_stus != "active")
@@ -47,7 +48,7 @@ function accordion() {
 	        $('.accordion dd').slideUp();
 	        $('.accordion dt').attr('stus', '');
 	        $('.accordion dt').removeClass('active');
-	         
+
 	        //then open the clicked data
 	        $(this).next().slideDown();
 	        $(this).attr('stus', 'active');
@@ -62,7 +63,7 @@ function accordion() {
 	    }
 	    return false;
 	});
-	  
+
 }
 
 
@@ -108,6 +109,31 @@ function imageslider() {
 	});
 }
 
+/*
+	Media player for course page
+*/
+function trainerMedia() {
+	var left  = ($(window).width()/2)-(500/2),
+    	top   = ($(window).height()/2)-(600/2);
+
+	$(".trainer-media li").each(function(i, item_list){
+
+		var current = $(this),
+				popup = current.find('input[rel="popup"]').val(),
+				url = current.find('input[rel="url"]').val();
+
+		current.bind("click", function(){
+			$(".trainer-media li").removeClass("active");
+			$(this).addClass("active");
+			if (popup == "0") {
+				$("#media-player iframe").attr('src', url+'?autoplay=1');
+			} else if (popup == "1") {
+				window.open (url, "Run Riot Projects", "width=500, height=600, top="+top+", left="+left);
+				console.debug("Opening " + url);
+			}
+		});
+	});
+}
 
 /*
 	Maximise link area (apple href to container element)
@@ -140,14 +166,14 @@ function toolTip(){
 	  $(this).find('span').css('top','-7em').show();
 	} ,function(){
 	  $(this).find('span').css('top','-6.5em').hide();
-	});   
+	});
 }
-	
+
 
 /*
 	Sticky header - from 600px wide and up (tablet+)
-*/ 
-$(window).scroll(function() {    
+*/
+$(window).scroll(function() {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 80) {
@@ -171,6 +197,6 @@ $('li#nc-joinus a').click(function() {
 
 
 
-	
-	
-	
+
+
+

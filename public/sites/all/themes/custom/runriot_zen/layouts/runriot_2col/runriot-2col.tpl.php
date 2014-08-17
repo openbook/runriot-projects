@@ -20,21 +20,39 @@
       <?php print $content['header']; ?>
     </header>
 
-<div class="grid cf">
+    <?php if ($content['post_header_right'] || $content['post_header_left']) : ?>
+    <div class="grid cf">
 
+          <?php if ($content['post_header_left']) : ?>
           <div class="col grid-6col">
 
             <?php print $content['post_header_left']; ?>
 
           </div>
+          <?php endif; ?>
 
+          <?php if ($content['post_header_right']) : ?>
           <div class="col grid-6col">
 
             <?php print $content['post_header_right']; ?>
 
           </div>
-        </div>
+          <?php endif; ?>
 
+        </div>
+    <?php endif; ?>
+
+    <?php if ($content['full_post']) : ?>
+      <?php print $content['full_post']; ?>
+    <?php endif; ?>
   </div>
 
 </section>
+
+<?php if ($content['content']); ?>
+<section id="" class="accordion-wrapper cf ">
+      <div class="inner">
+      <?php print $content['content']; ?>
+      </div>
+</section>
+

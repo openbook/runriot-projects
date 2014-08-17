@@ -12,8 +12,10 @@ function runriot_zen_runriot_2col_panels_layouts() {
     //'admin css' => '../foundation_panels_admin.css',
     'regions' => array(
       "header"  => t("header"),
+      "full_post" => t("Post header full"),
       "post_header_left"  => t("post header left"),
       "post_header_right"  => t("post header right"),
+      "content" => t("content"),
     ),
   );
   return $items;

@@ -72,11 +72,11 @@ function runriot_zen_get_prev_next() {
 
   $output = '<div id="course-browse">';
   if ($prev_nid) {
-    $output .= '<a id="prev-course" href="'. 
+    $output .= '<a id="prev-course" href="'.
     url("node/" . $prev_nid) .'">Previous course</a>';
   }
   if ($next_nid) {
-    $output .= '<a id="next-course" href="'. 
+    $output .= '<a id="next-course" href="'.
     url("node/" . $next_nid) .'">Next course</a>';
   }
 
@@ -86,7 +86,7 @@ function runriot_zen_get_prev_next() {
 }
 
 
-  
+
 
 
 /**
@@ -105,6 +105,9 @@ function runriot_zen_preprocess_field(&$variables, $hook) {
   if ($variables['element']['#field_name'] == 'field_course_info'
     || $variables['element']['#field_name'] == 'field_faq_info') {
     $variables['theme_hook_suggestions'][] = 'field_collection_item__info';
+  }
+  if ($variables['element']['#field_name'] == 'field_trainer_media') {
+    $variables['theme_hook_suggestions'][] = 'field_collection_item__media';
   }
 }
 
