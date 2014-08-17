@@ -156,5 +156,5 @@ border: solid 1px #ddd;
 }
 
 #admin-toolbar {
-  z-index:1000000000;
+  z-index:1000000000 !important;
 }
