@@ -154,3 +154,7 @@ border: solid 1px #ddd;
   float:none;
   width:93%;
 }
+
+#admin-toolbar {
+  z-index:1000000000;
+}
