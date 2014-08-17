@@ -72,7 +72,7 @@ scripts[] = js/jquery.js
 scripts[] = js/html5.js
 scripts[] = js/jquery.bxslider.min.js
 scripts[] = js/scripts.js
-
+scripts[] = js/mobile.js
 
 
 ; This section lists the regions defined in Zen's default page.tpl.php and

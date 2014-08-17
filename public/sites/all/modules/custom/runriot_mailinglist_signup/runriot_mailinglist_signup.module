@@ -8,11 +8,12 @@ define("MAILCHIMP_API_KEY", "46f81330fbece4a8daf24babf878c039-us2");
 function runriot_mailinglist_signup_menu() {
   $items = array();
 
-  // $items['rr/mailinglist/page'] = array(
-  //   'page callback' => 'runriot_mailinglist_signup_page',
-  //   'access callback' => TRUE,
-  //   'type' => MENU_CALLBACK,
-  // );
+  $items['signup/mailinglist'] = array(
+    'page callback' => 'druapl_get_form',
+    'page arguments' => array('runriot_mailinglist_signup_form'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
 
   $items['rr/mailinglist/%ctools_js/%'] = array(
     'page callback' => 'runriot_mailinglist_signup_callback',
@@ -33,7 +34,7 @@ function _runriot_mailinglist_signup_make_link($link_text = '') {
     $link_text = 'Modal';
   }
 
-  return '<div id="magical-modal-link">' . l($link_text, 'rr/mailinglist/nojs/21', array('attributes' => array('class' => 'ctools-use-modal'))) . '</div>';
+  return '<div id="magical-modal-link">' . l($link_text, 'rr/mailinglist/nojs/21', array('attributes' => array('class' => 'ctools-use-modal waitinglist-signup'))) . '</div>';
 }
 
 /**
