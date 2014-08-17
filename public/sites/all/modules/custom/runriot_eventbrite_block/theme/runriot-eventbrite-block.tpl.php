@@ -27,7 +27,7 @@ $full_state = isset($tickets['full']->quantity_available)
 && $tickets['full']->quantity_available > 0 ? TRUE : FALSE;
 $concession_state = isset($tickets['concession']->quantity_available)
 && $tickets['full']->quantity_available > 0 ? TRUE : FALSE;
-$concession_state = FALSE;
+
 ?>
 <form id="mailing-list">
 <input type="hidden" id="mailing-list-id" value="<?php print $nid; ?>" />
