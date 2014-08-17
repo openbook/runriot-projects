@@ -29,6 +29,9 @@ $concession_state = isset($tickets['concession']->quantity_available)
 && $tickets['full']->quantity_available > 0 ? TRUE : FALSE;
 $concession_state = FALSE;
 ?>
+<form id="mailing-list">
+<input type="hidden" id="mailing-list-id" value="<?php print $nid; ?>" />
+</form>
 <!-- theming-example-text-form template -->
 <ul id="ticket-options">
   <?php if ($full_state) :?>
@@ -47,13 +50,13 @@ $concession_state = FALSE;
 
   <?php if ($concession_state) :?>
   <li>
-    <h3>Concessions <span class="tooltip"></span></h3>
+    <h3>Concessions <span class="tooltip" style="display: inline-block;">?<span style="top: -6.5em; display: none;"> We are offering a number of concessionary rate places for the unemployed and students, on a first come, first served basis.</span></span></h3>
     <p>&pound;<?php print money_format($tickets['concession']->display_price, 2);?></p>
     <a href="<?php print $event->url; ?>" class="btn btn-alt">Book now</a>
   </li>
   <?php else : ?>
   <li class="sold-out">
-    <h3>Concessions <span class="tooltip"></span></h3>
+    <h3>Concessions <span class="tooltip" style="display: inline-block;">?<span style="top: -6.5em; display: none;"> We are offering a number of concessionary rate places for the unemployed and students, on a first come, first served basis.</span></span></h3>
     <p>&pound;<?php print money_format($tickets['concession']->display_price, 2);?> <span>Sold out</span></p>
     <a href="/rr/mailinglist/nojs/<?php print $nid; ?>" class="btn btn-alt ctools-use-modal waitinglist-signup">Join waiting list</a>
   </li>

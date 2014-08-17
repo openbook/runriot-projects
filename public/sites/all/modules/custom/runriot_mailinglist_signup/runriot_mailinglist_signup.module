@@ -8,9 +8,9 @@ define("MAILCHIMP_API_KEY", "46f81330fbece4a8daf24babf878c039-us2");
 function runriot_mailinglist_signup_menu() {
   $items = array();
 
-  $items['signup/mailinglist'] = array(
-    'page callback' => 'druapl_get_form',
-    'page arguments' => array('runriot_mailinglist_signup_form'),
+  $items['signup/mailinglist/%'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('runriot_mailinglist_signup_form', 2),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
@@ -85,6 +85,7 @@ function runriot_mailinglist_signup_callback($ajax, $nid) {
  * Drupal form to be put in a modal.
  */
 function runriot_mailinglist_signup_form($form, $form_state, $nid) {
+
   $form = array();
 
   $form['title'] = array(
@@ -140,7 +141,7 @@ function runriot_mailinglist_signup_form($form, $form_state, $nid) {
   );
   $form['nid'] = array(
     '#type' => 'hidden',
-    '#value' => $form_state['nid'],
+    '#value' => isset($form_state['nid']) ? $form_state['nid'] : $nid,
   );
 
   $form['tandcs'] = array(

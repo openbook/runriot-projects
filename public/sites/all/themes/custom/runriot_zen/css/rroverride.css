@@ -134,3 +134,23 @@ border: solid 1px #ddd;
 -moz-border-radius: 0;
 -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
 }
+
+#runriot-mailinglist-signup-form {
+  background-color:white;
+  padding:20px;
+}
+
+.ctools-use-modal-processed#runriot-mailinglist-signup-form {
+  padding:0px;
+}
+
+.page-signup-mailinglist #runriot-mailinglist-signup-form > div > div.form-item.form-type-textfield.form-item-dob {
+  clear:both;
+  margin-top:20px;
+}
+
+.page-signup-mailinglist #runriot-mailinglist-signup-form > div > div.form-item.form-type-textfield.form-item-dob #edit-dob {
+  clear:both;
+  float:none;
+  width:93%;
+}

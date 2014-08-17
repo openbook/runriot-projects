@@ -1,21 +1,3 @@
-/**
- * @file
- * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
- *
- * When you turn on CSS aggregation at admin/config/development/performance, all
- * of these @include files will be combined into a single file.
- */
-
-/* HTML element (SMACSS base) rules */
-/*@import "normalize.css";*/
-
-/* Layout rules */
-/*@import "layouts/responsive.css";*/
-
-/* Component (SMACSS module) rules */
-/*@import "components/misc.css";*/
-/* Optionally, add your own components here. */
-
 /*
  * THEME for Run Riot Projects
  *
@@ -35,7 +17,6 @@
  * 16 Sections - Featured
  * 20 Modules - Panels (featured content)
  * 21 Modules - Accordion
- * 22 Modules - Popups
  * 30 JQuery - BXSlider
  * 31 Layouts - Emails
  * 40 Responsive - Tablet (900px)
@@ -55,7 +36,6 @@
 /* 00 Imports
 -------------------------------------------------------------- */
 @import "reset.css";
-
 @import url("//hello.myfonts.net/count/2ba82d");
 @font-face {font-family: 'DINNextLTPro-LightCondensed';src: url('../fonts/2BA82D_0_0.eot');src: url('../fonts/2BA82D_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2BA82D_0_0.woff') format('woff'),url('../fonts/2BA82D_0_0.ttf') format('truetype');}
 @font-face {font-family: 'DINNextLTPro-Condensed';src: url('../fonts/2BA82D_1_0.eot');src: url('../fonts/2BA82D_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2BA82D_1_0.woff') format('woff'),url('../fonts/2BA82D_1_0.ttf') format('truetype');}
@@ -80,6 +60,8 @@ header#masthead {
   margin: 0 auto;
   padding: 1em;
   position: relative; }
+
+#container { }
 
 footer {
   padding: 30px 0;
@@ -118,6 +100,7 @@ header #branding {
   position: absolute;
   width: 356px;
   height: 178px;
+  z-index: 9999999;
   left: 50%;
   margin-left: -178px;
   text-align: center;
@@ -152,9 +135,11 @@ a#navibar {
   font-size: 1.2em;
   line-height: 2em;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
 
-a#navibar.active {  }
+a#navibar.active {
+  background: #fbe8e0; }
 
 a#navibar i.navmenu {
   background: url('../images/menu.png') no-repeat;
@@ -166,16 +151,18 @@ a#navibar i.navmenu {
   top: 50%;
   margin-top: -2px; }
 
-nav#nav-main {}
+nav#nav-main {
+  width: 100% !important; }
 
 nav#nav-main ul {
   display: none;
   background: #fbe8e0;
-  /*background: #023059; */
-  z-index: 9999;
-  width: 160px;
-  left: 1em;
-  position: absolute; }
+  z-index:  2;
+  width: 200px;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  padding-top: 30px; }
 
 nav#nav-main ul li {
   font-size: 1.25em;
@@ -183,8 +170,9 @@ nav#nav-main ul li {
 
 nav#nav-main ul li a {
   display: block;
-  width: 120px;
-  padding: .25em 1em; }
+  width: 100%;
+  padding: .5em 1em;
+  font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
 
 nav#nav-main ul li a:hover {
   text-decoration: none;
@@ -235,6 +223,38 @@ nav#nav-connect ul li#nc-youtube:hover{   background: #ff6e00 url('../images/ns-
 nav#nav-connect ul li#nc-joinus:hover {   background: #ff6e00; }
 nav#nav-connect ul li#nc-joinus:hover a {   color: #fff; }
 
+nav#nav-main,
+nav#nav-connect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90000; }
+
+nav#nav-connect {
+  left: auto;
+  right: 0; }
+
+header#masthead.sticky {
+  background: #fbe8e0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: block;
+  z-index: 90000;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  box-shadow: 0 0 10px rgba(0,0,0,.3); }
+
+header#masthead.sticky #branding {
+  height: 70px;
+  overflow: hidden; }
+
+header#masthead.sticky #branding img {
+  overflow: hidden;
+  height: 120px;
+  margin-top: 0px;
+  width: auto; }
 
 /* 03 Footer
 -------------------------------------------------------------- */
@@ -531,8 +551,6 @@ form input[type="checkbox"]:checked + label:after {
   margin: 0 auto;
   font-size: 1em; }
 
-
-
 /* 10 Sections - Defaults
 -------------------------------------------------------------- */
 section {
@@ -573,7 +591,7 @@ section#head {
   position: relative; }
 
 section#head header {
-  width: 66.13%;
+  width: 90%;
   margin: 0 auto 1em; }
 
 p.pane-wrapper-more {
@@ -641,7 +659,7 @@ section.p-large p {
 
 section.p-med p,
 #trainer-profile p {
-  font-size: 1.5em; }
+  font-size: 1.7em; }
 
 
 /* 11 Sections - Sliders
@@ -669,9 +687,15 @@ section#slides li .caption {
   position: absolute;
   z-index: 9999;
   display: block;
-  width: 100%;
-  background: rgba(255,255,255,.8);
-  bottom: 0em; }
+  width: auto;
+  padding: 0 1em;
+  background: #fcf7f3;
+  bottom: 0px;
+  right: 0; }
+
+section#slides li .caption a {
+  color: #023059;
+  text-decoration: underline; }
 
 /* 12 Sections - Course
 -------------------------------------------------------------- */
@@ -738,6 +762,35 @@ ul#ticket-options li.sold-out a.btn {
 ul#ticket-options li.sold-out a.btn:hover {
   background: #fcf7f3; }
 
+ul#ticket-options h3 .tooltip {
+  background: #023059;
+  height: 1em;
+  width: 1em;
+  font-size: .8em;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  color: #fff;
+  margin-left: .1em;
+  position: relative;
+  display: none;
+  cursor: pointer; }
+
+ul#ticket-options h3 .tooltip span {
+  position: absolute;
+  display: none;
+  width: 12em;
+  background: #fff;
+  color: #023059;
+  text-transform: none;
+  top: -6.5em;
+  left: -6em;
+  padding: .6em;
+  border: 1px solid #ddd;
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,.1);
+  box-shadow: 0 0 5px rgba(0,0,0,.1); }
+
 /* Course nav */
 #course-browse  {
   position: absolute;
@@ -759,7 +812,9 @@ ul#ticket-options li.sold-out a.btn:hover {
   -o-transition: all .3s;
   transition: all .3s; }
 
-#course-browse a#prev-course {    left: 14px; background: url('../images/arrow-left.png') no-repeat center; }
+#course-browse a#prev-course { left: 14px; background: url('../images/arrow-left.png') no-repeat center; }
+
+#course-browse a#next-course { right: 14px; background: url('../images/arrow-right.png') no-repeat center; }
 
 #course-browse a#prev-course:hover { left: 4px; opacity: .5; }
 #course-browse a#next-course:hover { right: 4px; opacity: .5; }
@@ -793,6 +848,10 @@ section header.title-with-download p a {
   color: #9aacbd;
   text-decoration: none;  }
 
+section#course-desc p {
+  font-size: 2em;
+  margin-bottom: .5em; }
+
 /* Trainer */
 section#trainer header h2 {
   margin-bottom: 0;
@@ -813,10 +872,36 @@ section#trainer header p {
   height: auto; }
 
 ul.trainer-media li {
-  width: 48%;
-  margin: 1%;
-  float: left; }
+  width: 88%;
+  padding: 1% 6%;
+  margin-bottom: 1px;
+  float: left;
+  font-size: 1.25em;
+  background: #fcf7f3 url('../images/media-player-play.png') no-repeat 6px .8em;
+  cursor: pointer; }
 
+ul.trainer-media li.active {
+  background: #ff6e00 url('../images/media-player-stop.png') no-repeat 5px .8em;
+  color: #fff;  }
+
+ul.trainer-media li.active:hover {
+  background: #ff6e00 url('../images/media-player-stop.png') no-repeat 7px .8em; }
+
+ul.trainer-media li:hover {
+  background: #fbe8e0 url('../images/media-player-play.png') no-repeat 8px .8em;;  }
+
+ul.trainer-media li strong {
+  white-space: nowrap; }
+/*
+
+* COLORS
+* Orange:       #ff6e00
+* Orange (mid):   #fbe8e0
+* Orange (light):   #fcf7f3
+* Blue:     #023059
+* Blue (light): #9aacbd
+
+*/
 ul.trainer-media li.highlight {
   width: 98%; }
 
@@ -940,7 +1025,6 @@ section#featured p a {
 /* 20 Modules - Panels (featured content)
 -------------------------------------------------------------- */
 ul.pane-wrapper {  }
-
 
 ul.pane-wrapper li {
   width: 33%;
@@ -1134,41 +1218,6 @@ dl.accordion dd li {
   font-size: 1.6em;
   font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
 
-
-/*22 Modules - Popups
--------------------------------------------------------------- */
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0,0,0,.6);
-  filter: alpha(opacity=60);
-  z-index: 1000000;
-  display: none; }
-
-#overlay-content {
-  position: fixed;
-  top: 20%;
-  left: 20%;
-  height: 60%;
-  width: 60%;
-  background: #fff;
-  z-index: 1100000;
-  overflow: scroll;
-  display: none; }
-
-#closewin a {
-  position: absolute;
-  z-index: 90;
-  right: 0;
-  top: 0;
-}
-
-#overlay-content #container {
-  min-width: 400px; }
-
 /* 30 JQuery - BXSlider
 -------------------------------------------------------------- */
 /**
@@ -1343,6 +1392,10 @@ dl.accordion dd li {
     clear: left !important;
     float: right; }
 
+  header#masthead.sticky li#nc-joinus {
+    clear: none !important;
+    margin-top: 0 ; }
+
   /* 05 Forms */
   form label {
     text-align: left; }
@@ -1370,6 +1423,15 @@ dl.accordion dd li {
     width: 60%;
     margin: 3em auto; }
 
+  /* 12 Sections - Course */
+  section#booknow .grid-2col,
+  section#booknow-footer .grid-2col {
+    width: 0; }
+
+   section#booknow .grid-8col,
+  section#booknow-footer .grid-8col {
+    width: 100%; }
+
   /* 14 Sections - Join */
   section#join .grid-4col {
     width: 100%;
@@ -1393,6 +1455,9 @@ dl.accordion dd li {
     margin-bottom: 2em; }
 
   /* 20 Modules - Panels */
+  section#events .inner {
+    width: 80% !important; }
+
   ul.pane-wrapper li {
     width: 45%; }
 
@@ -1441,10 +1506,14 @@ dl.accordion dd li {
     left: auto;
     width: 283px;
     height: 192px;
-    background: url('../images/run-riot-projects-m.png'); }
+    background: url('../images/run-riot-projects-m.png') no-repeat; }
 
   header #branding img {
     display: none;  }
+
+  header#masthead.sticky #branding {
+    background-size: 200px;
+    background-position: top right; }
 
   /* 03 Footer */
   footer nav#nav-sitemap {
@@ -1493,12 +1562,32 @@ dl.accordion dd li {
     width: 100%;  }
 
   /* 12 Sections - Course */
+  section#head.course header {
+    padding: 0 70px;
+    width: auto; }
+
   ul#ticket-options li {
     float: left;
     width: 100%;
     clear: left;
-    margin-bottom: 3em;
     border: none !important; }
+
+  ul#ticket-options li:first-of-type {
+    margin-bottom: 4em; }
+
+  ul#course-detail {
+    width: 70%;
+    margin: 0 15%; }
+
+  ul#course-detail li {
+    width: 100%;
+    padding: 1em 0;
+    margin: 2% 0 0;
+    height: auto;
+    border-bottom: 1px solid #023059; }
+
+  ul#course-detail li:last-of-type {
+    border: none; }
 
   /* 14 Sections - Join */
   section#join .grid-4col p:after {
@@ -1511,6 +1600,9 @@ dl.accordion dd li {
     display: block; }
 
   /* 20 Modules - Panels */
+  ul.pane-wrapper {
+    width: 80%;  }
+
   ul.pane-wrapper li {
     width: 100%;
     margin-bottom: 3em; }
@@ -1525,4 +1617,3 @@ dl.accordion dd li {
   dl.accordion dd li {
     width: 100%; }
 }
-
