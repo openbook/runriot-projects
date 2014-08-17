@@ -13,7 +13,7 @@
  */
 ?>
 
-<section id="head" class="cf">
+<section id="head" class="course cf">
   <div class="inner">
 
     <header>

@@ -4,7 +4,7 @@ $(document).ready(function () {
     articleslider();
     imageslider();
     maximiseAnchor();
-    popup();
+    toolTip();
 });
 
 
@@ -34,29 +34,63 @@ function mainnav(){
 	Definition list accordions
 */
 function accordion() {
-	var accordionPanels = $('.accordion > dd').hide();
-	$('.accordion > dt a').click(function() {
-	    accordionPanels.slideUp();
-	     $('.accordion > dt').removeClass('active');
-	     $(this).parents('dt').addClass('active');
-	     $(this).parents().next().slideDown();
+	var cur_stus;
+	 
+	$('.accordion dd').hide();
+	$('.accordion dt').attr('stus', '');
+	
+	$('.accordion dt').click(function(){
+	    cur_stus = $(this).attr('stus');
+	    if(cur_stus != "active")
+	    {
+	        //reset everthing - content and attribute
+	        $('.accordion dd').slideUp();
+	        $('.accordion dt').attr('stus', '');
+	        $('.accordion dt').removeClass('active');
+	         
+	        //then open the clicked data
+	        $(this).next().slideDown();
+	        $(this).attr('stus', 'active');
+	        $(this).addClass('active');
+	    }
+	    //Remove else part if do not want to close the current opened data
+	    else
+	    {
+	        $(this).next().slideUp();
+	        $(this).attr('stus', '');
+	        $(this).removeClass('active');
+	    }
 	    return false;
-	  });
+	});
+	  
+}
+
+
+/*
+	Sliders for articles
+*/
+
+var varMaxSlides,
+    width = $(window).width();
+
+if (width < 400) {
+    varMaxSlides = 1;
+    varWidthSlide = 290;
+} else {
+    varMaxSlides = 3;
+    varWidthSlide = 330;
 }
 
 
 
- 
-/*
-	Sliders for articles
-*/
 function articleslider() {
 	$('ul.articleslider').bxSlider({
 	  minSlides: 1,
-	  maxSlides: 3,
-	  slideWidth: 360,
+	  maxSlides: varMaxSlides,
+	  slideWidth: 330,
 	  slideMargin: 10,
-	  pager: false
+	  pager: false,
+	  autoHidePager: true
 	});
 }
 
@@ -69,7 +103,8 @@ function imageslider() {
 	  auto: true,
 	  pager: true,
 	  pause: 5000,
-	  speed: 2000
+	  speed: 2000,
+	  autoHidePager: true
 	});
 }
 
@@ -96,35 +131,31 @@ function maximiseAnchor(){
 
 
 /*
-	Popups
+	Maximise link area (apple href to container element)
 */
-function popup() {
-    $(".popup").bind("click", function () {
-        var href = $(this).attr("href");
-        jQuery.ajax({
-            url: href,
-            success: function (result) {
-                var html = $.parseHTML(result);
-                var content = $(html).find("#container");
-                $("#overlay").empty();
-                $("#overlay-content").empty();
-                $("#overlay").fadeIn();
-                 $("#overlay-content").fadeIn(function () {
-                    $("#overlay-content").html(content);
-                    $("#overlay-content").prepend('<p id="closewin"><a href="#">Close</a></p>');
-                    $("#closewin a").bind("click", function () {
-                        $("#overlay").fadeOut();
-                        $("#overlay-content").fadeOut();
-                        return false;
-                    });
-                });
+function toolTip(){
+	$('.tooltip').css('display', 'inline-block');
 
-            },
-        });
-        return false;
-    });
+	$('.tooltip').hover(function(){
+	  $(this).find('span').css('top','-7em').show();
+	} ,function(){
+	  $(this).find('span').css('top','-6.5em').hide();
+	});   
 }
- 
+	
+
+/*
+	Sticky header - from 600px wide and up (tablet+)
+*/ 
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+        $("header#masthead").addClass("sticky");
+    } else {
+        $("header#masthead").removeClass("sticky");
+    }
+});
 
 /*
 	Smooth scrolling
@@ -138,3 +169,8 @@ $('li#nc-joinus a').click(function() {
 });
 
 
+
+
+	
+	
+	
