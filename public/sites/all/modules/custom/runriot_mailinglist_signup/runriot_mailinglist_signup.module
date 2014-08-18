@@ -257,7 +257,7 @@ function runriot_mailinglist_footer_signup_form($form, &$form_state) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Join waiting list'),
+    '#value' => t('Join us'),
   );
 
   return $form;

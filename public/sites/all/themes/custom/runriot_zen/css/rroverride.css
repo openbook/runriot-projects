@@ -162,3 +162,8 @@ border: solid 1px #ddd;
 .page__title.title {
   display:none;
 }
+
+ul#course-detail li p {
+  font-size: 1.75em;
+}
+
