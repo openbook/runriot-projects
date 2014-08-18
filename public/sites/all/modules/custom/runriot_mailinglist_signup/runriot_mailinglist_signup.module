@@ -285,6 +285,7 @@ function runriot_mailinglist_footer_signup_form($form, &$form_state) {
 
 function runriot_mailinglist_footer_signup_form_submit(&$form, &$form_state) {
 
+  require_once('includes/Mailchimp.php');
   $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => FALSE));
 
   $merge_vars = array(

@@ -4,4 +4,3 @@ package = Run Riot
 core = 7.x
 dependencies[]=block
 dependencies[]=ctools
-files[] = includes/Mailchimp.php
