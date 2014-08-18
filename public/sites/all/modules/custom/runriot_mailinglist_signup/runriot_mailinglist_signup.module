@@ -323,6 +323,6 @@ function runriot_mailinglist_footer_signup_form_submit(&$form, &$form_state) {
     watchdog("runriot_mailinglist_signup", "mailing chimp sign !singup",
       array("!singup" => print_r($outcome,1)));
   }
-  drupal_set_message("Thanks for signing up to our mailing list!");
+  // drupal_set_message("Thanks for signing up to our mailing list!");
   $form_state['redirect'] = 'signup/thanks';
 }
