@@ -8,9 +8,21 @@
     </div>
   </dt>
   <dd style="display: none;">
-    <div>
-      <p><?php print $info_item['field_answer'][0]['#markup']; ?></p>
-    </div>
+
+    <?php
+    $string = html_entity_decode($info_item['field_answer'][0]['#markup']);
+    // check for HTML
+    $html = FALSE;
+    $html = $string != strip_tags($string) ? TRUE : FALSE;
+    ?>
+    <?php if($html) : ?>
+      <?php print $string; ?>
+    <?php else: ?>
+      <div>
+        <p><?php print nl2br($info_item['field_answer'][0]['#markup']); ?></p>
+      </div>
+    <?php endif; ?>
+
   </dd>
 <?php endforeach; ?>
 </dl>
