@@ -191,7 +191,6 @@ function runriot_mailinglist_signup_form_submit(&$form, &$form_state) {
   }
 
   $library = libraries_load('mailchimp');
-  // require_once('/mnt/sites/runriot-projects/public/sites/all/modules/custom/runriot_mailinglist_signup/includes/Mailchimp.php');
   $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => FALSE));
 
   $ticket_value = '';

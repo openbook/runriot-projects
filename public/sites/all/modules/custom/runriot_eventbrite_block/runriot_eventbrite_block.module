@@ -161,8 +161,5 @@ function runriot_signup_block($form, &$form_state, $vars) {
   return $form;
 }
 
-function runriot_signup_block_submit($form, &$form_state) {
-  require_once('includes/Mailchimp.php');
-  $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => TRUE));
-}
+
 
