@@ -28,7 +28,7 @@
     <p><?php print strip_tags($row->field_field_summary[0]['rendered']); ?></p>
 
     <div class="times">
-      <p><?php print $row->field_field_date_time_text[0]['rendered']['#markup']; ?></p>
+      <p><?php print strip_tags($row->field_field_date_time_text[0]['rendered']['#markup']); ?></p>
     </div>
 
     <p><a class="btn btn-alt" href="<?php print url("node/" . $row->nid); ?>">Find out more</a></p>

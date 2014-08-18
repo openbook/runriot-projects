@@ -112,7 +112,7 @@ function mailchimp_get_api_object() {
   }
 
   $library = libraries_load('mailchimp');
-  error_log(print_r($library,1));
+
   if (!$library['installed']) {
     $msg = t('Failed to load MailChimp PHP library. Please refer to the installation requirements.');
     watchdog('mailchimp', $msg, NULL, WATCHDOG_ERROR);

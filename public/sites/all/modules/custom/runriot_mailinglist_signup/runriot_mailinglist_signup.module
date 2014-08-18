@@ -190,6 +190,8 @@ function runriot_mailinglist_signup_form_submit(&$form, &$form_state) {
     return;
   }
 
+    require_once('includes/Mailchimp.php');
+
   $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => TRUE));
 
   $ticket_value = '';
