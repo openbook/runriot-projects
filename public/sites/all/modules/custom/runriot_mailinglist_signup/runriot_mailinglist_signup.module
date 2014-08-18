@@ -190,8 +190,8 @@ function runriot_mailinglist_signup_form_submit(&$form, &$form_state) {
     return;
   }
 
-  $library = libraries_load('mailchimp');
-  $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => FALSE));
+  require_once('includes/Mailchimp.php');
+  $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => TRUE));
 
   $ticket_value = '';
   if ($form_state['values']['tickets']['Full price']
@@ -212,17 +212,27 @@ function runriot_mailinglist_signup_form_submit(&$form, &$form_state) {
     "OCCUPATION" => $form_state['values']['occupation'],
     "POSTCODE" => $form_state['values']['postcode'],
   );
-
-  $outcome = $mailchimp->lists->subscribe(
+  mailchimp_subscribe(
     $mailchimp_id[0]['value'],
-    array("email" => $form_state['values']['email']),
+    $form_state['values']['email'],
     $merge_vars,
-    $email_type='html',
-    $double_optin=true,
-    $update_existing=true,
-    $replace_interests=true,
-    $send_welcome=true
+    $double_optin = FALSE,
+    $confirm = TRUE,
+    $format = 'html',
+    $update_existing = TRUE,
+    $replace_interests = TRUE
   );
+
+  // $outcome = $mailchimp->lists->subscribe(
+  //   $mailchimp_id[0]['value'],
+  //   array("email" => $form_state['values']['email']),
+  //   $merge_vars,
+  //   $email_type='html',
+  //   $double_optin=true,
+  //   $update_existing=true,
+  //   $replace_interests=true,
+  //   $send_welcome=true
+  // );
 
   $output = '<div class="rrmodal-content"><h2>Thanks for signing up</h2><p>You should receive
   an email confirming your subscription.  Please follow the link in that email to complete your sign up</p>';
@@ -276,7 +286,7 @@ function runriot_mailinglist_footer_signup_form($form, &$form_state) {
 
 function runriot_mailinglist_footer_signup_form_submit(&$form, &$form_state) {
 
-  $library = libraries_load('mailchimp');
+  require_once('includes/Mailchimp.php');
   $mailchimp = new Mailchimp(MAILCHIMP_API_KEY, array("debug" => FALSE));
 
   $merge_vars = array(
@@ -299,6 +309,16 @@ function runriot_mailinglist_footer_signup_form_submit(&$form, &$form_state) {
       $replace_interests=true,
       $send_welcome=true
     );
+  // mailchimp_subscribe(
+  //   $list,
+  //   $form_state['values']['email'],
+  //   $merge_vars,
+  //   $double_optin = FALSE,
+  //   $confirm = TRUE,
+  //   $format = 'html',
+  //   $update_existing = TRUE,
+  //   $replace_interests = TRUE
+  // );
     watchdog("runriot_mailinglist_signup", "mailing chimp sign !singup",
       array("!singup" => print_r($outcome,1)));
   }
