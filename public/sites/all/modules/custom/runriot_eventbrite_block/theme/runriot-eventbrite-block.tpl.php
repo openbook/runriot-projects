@@ -26,7 +26,7 @@ $tickets = _runriot_get_tickets($event);
 $full_state = isset($tickets['full']->quantity_available)
 && $tickets['full']->quantity_available > 0 ? TRUE : FALSE;
 $concession_state = isset($tickets['concession']->quantity_available)
-&& $tickets['full']->quantity_available > 0 ? TRUE : FALSE;
+&& $tickets['concession']->quantity_available > 0 ? TRUE : FALSE;
 
 ?>
 <form id="mailing-list">
