@@ -167,3 +167,8 @@ ul#course-detail li p {
   font-size: 1.0em;
 }
 
+#modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
