@@ -90,5 +90,17 @@
 
   </div><!--#wrapper-->
 <?php print $page_bottom; ?>
+<a title="Web Analytics" href="http://clicky.com/100767633"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100767633); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100767633ns.gif" /></p></noscript>
+<script type="text/javascript">
+   var _mfq = _mfq || [];
+   (function() {
+       var mf = document.createElement("script"); mf.type = "text/javascript"; mf.async = true;
+       mf.src = "//cdn.mouseflow.com/projects/cd13215d-4a2c-4cbe-a59d-8a2490595d5e.js";
+       document.getElementsByTagName("head")[0].appendChild(mf);
+   })();
+</script>
 </body>
 </html>

@@ -617,39 +617,39 @@ function zen_menu_local_task($variables) {
 /**
  * Implements hook_preprocess_menu_link().
  */
-function zen_preprocess_menu_link(&$variables, $hook) {
-  foreach ($variables['element']['#attributes']['class'] as $key => $class) {
-    switch ($class) {
-      // Menu module classes.
-      case 'expanded':
-      case 'collapsed':
-      case 'leaf':
-      case 'active':
-      // Menu block module classes.
-      case 'active-trail':
-        array_unshift($variables['element']['#attributes']['class'], 'is-' . $class);
-        break;
-      case 'has-children':
-        array_unshift($variables['element']['#attributes']['class'], 'is-parent');
-        break;
-    }
-  }
-  array_unshift($variables['element']['#attributes']['class'], 'menu__item');
-  if (empty($variables['element']['#localized_options']['attributes']['class'])) {
-    $variables['element']['#localized_options']['attributes']['class'] = array();
-  }
-  else {
-    foreach ($variables['element']['#localized_options']['attributes']['class'] as $key => $class) {
-      switch ($class) {
-        case 'active':
-        case 'active-trail':
-          array_unshift($variables['element']['#localized_options']['attributes']['class'], 'is-' . $class);
-          break;
-      }
-    }
-  }
-  array_unshift($variables['element']['#localized_options']['attributes']['class'], 'menu__link');
-}
+// function zen_preprocess_menu_link(&$variables, $hook) {
+//   foreach ($variables['element']['#attributes']['class'] as $key => $class) {
+//     switch ($class) {
+//       // Menu module classes.
+//       case 'expanded':
+//       case 'collapsed':
+//       case 'leaf':
+//       case 'active':
+//       // Menu block module classes.
+//       case 'active-trail':
+//         array_unshift($variables['element']['#attributes']['class'], 'is-' . $class);
+//         break;
+//       case 'has-children':
+//         array_unshift($variables['element']['#attributes']['class'], 'is-parent');
+//         break;
+//     }
+//   }
+//   array_unshift($variables['element']['#attributes']['class'], 'menu__item');
+//   if (empty($variables['element']['#localized_options']['attributes']['class'])) {
+//     $variables['element']['#localized_options']['attributes']['class'] = array();
+//   }
+//   else {
+//     foreach ($variables['element']['#localized_options']['attributes']['class'] as $key => $class) {
+//       switch ($class) {
+//         case 'active':
+//         case 'active-trail':
+//           array_unshift($variables['element']['#localized_options']['attributes']['class'], 'is-' . $class);
+//           break;
+//       }
+//     }
+//   }
+//   array_unshift($variables['element']['#localized_options']['attributes']['class'], 'menu__link');
+// }
 
 /**
  * Returns HTML for status and/or error messages, grouped by type.

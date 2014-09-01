@@ -172,3 +172,25 @@ ul#course-detail li p {
   top: 15px;
   right: 20px;
 }
+
+section#slides ul li img {
+  height: auto !important;
+}
+
+ul#course-detail li {
+  width:42%;
+  padding:1em 1%;
+}
+
+ul#how-we-work li {
+  font-weight:bold;
+}
+
+/* 40 Responsive - Tablet (900px)
+-------------------------------------------------------------- */
+@media all and (max-width: 600px) {
+  ul#course-detail {
+    width: 88%;
+    margin: 0 5%;
+  }
+}
