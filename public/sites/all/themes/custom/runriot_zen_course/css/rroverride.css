@@ -1,0 +1,196 @@
+#skip-link {
+  display:none;
+}
+
+#modalContent {
+  left: 28% !important;
+  font-size: 16px;
+}
+
+#modalContent .ctools-modal-content  {
+  width: 600px !important;
+  font-size: 16px;
+}
+
+#modalContent .modal-header {
+  display:none;
+}
+
+#modalContent #modal-content {
+  width: 568px !important;
+  overflow-x: hidden;
+}
+
+#modalContent h2 {
+  margin-top:30px;
+}
+#modalContent h2,
+#modalContent p {
+  text-align:center;
+}
+
+#modalContent p {
+ margin-bottom:20px;
+}
+
+#modalContent .rrmodal-content {
+  padding: 20px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#modalContent .form-item {
+  margin-bottom:10px;
+}
+
+#modalContent .form-item.form-item-firstname,
+#modalContent .form-item.form-item-surname {
+  width: 48%;
+  float: left;
+}
+
+#modalContent .form-item.form-item-firstname {
+  margin-right: 13px;
+}
+
+#modalContent input[type="submit"] {
+  width:260px;
+position: relative;
+left: 27%;
+}
+
+#modalContent .messages__list {
+  color:red;
+}
+
+
+#runriot-mailinglist-footer-signup-form .form-item.form-item-firstname,
+#runriot-mailinglist-footer-signup-form .form-item.form-item-surname {
+  width: 48%;
+  float:left;
+  clear: none;
+}
+
+#runriot-mailinglist-footer-signup-form .form-item.form-item-surname {
+  margin-left: 4%;
+}
+#runriot-mailinglist-footer-signup-form .form-item {
+  margin-bottom: 1em;
+}
+
+
+#runriot-mailinglist-footer-signup-form .form-item.form-item-firstname label,
+#runriot-mailinglist-footer-signup-form .form-item.form-item-surname label,
+#runriot-mailinglist-footer-signup-form .form-item.form-item-email label {
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+#runriot-mailinglist-footer-signup-form .form-item.form-type-checkbox {
+  float:left;
+  width:50%;
+}
+#runriot-mailinglist-footer-signup-form .form-item.form-type-checkbox label {
+  text-transform: none;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+}
+
+.field-collection-container {
+  border:0;
+}
+
+ul.primary {
+border:0;
+background-color:#fcf7f3;
+height: auto;
+line-height: normal;
+list-style: none;
+margin: 0px;
+padding: 0 0 0 1em;
+white-space: nowrap;
+}
+ul.primary li {
+padding: 0;
+margin: 0 5px;
+background-color:#023059;
+padding:5px 10px 10px 10px;
+}
+ul.primary li {
+display: inline;
+}
+
+
+.page-import #container {
+  background-color: white;
+}
+
+
+div.ctools-modal-content {
+font-size: 12px;
+border: solid 1px #ddd;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+}
+
+#runriot-mailinglist-signup-form {
+  background-color:white;
+  padding:20px;
+}
+
+.ctools-use-modal-processed#runriot-mailinglist-signup-form {
+  padding:0px;
+}
+
+.page-signup-mailinglist #runriot-mailinglist-signup-form > div > div.form-item.form-type-textfield.form-item-dob {
+  clear:both;
+  margin-top:20px;
+}
+
+.page-signup-mailinglist #runriot-mailinglist-signup-form > div > div.form-item.form-type-textfield.form-item-dob #edit-dob {
+  clear:both;
+  float:none;
+  width:93%;
+}
+
+#admin-toolbar {
+  z-index:1000000000 !important;
+}
+
+.page__title.title {
+  display:none;
+}
+
+ul#course-detail li p {
+  font-size: 1.0em;
+}
+
+#modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+section#slides ul li img {
+  height: auto !important;
+}
+
+ul#course-detail li {
+  width:42%;
+  padding:1em 1%;
+}
+
+ul#how-we-work li {
+  font-weight:bold;
+}
+
+/* 40 Responsive - Tablet (900px)
+-------------------------------------------------------------- */
+@media all and (max-width: 600px) {
+  ul#course-detail {
+    width: 88%;
+    margin: 0 5%;
+  }
+}
