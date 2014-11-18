@@ -109,6 +109,10 @@ function runriot_zen_preprocess_field(&$variables, $hook) {
   if ($variables['element']['#field_name'] == 'field_trainer_media') {
     $variables['theme_hook_suggestions'][] = 'field_collection_item__media';
   }
+
+  if ($variables['element']['#field_name'] == 'field_course_option' ) {
+    $variables['theme_hook_suggestions'][] = 'field_collection_item__booking';
+  }
 }
 
 /**

@@ -12,8 +12,7 @@ function runriot_zen_course_runriot_course_panels_layouts() {
     //'admin css' => '../foundation_panels_admin.css',
     'regions' => array(
       'type' => t('Type'),
-      'title' => t('Title'),
-      'header' => t('Header'),
+      'about' => t('About'),
       'hero_image' => t('Hero image'),
       'post_hero_image' => t('Post hero image'),
       'post_hero_date' => t('Post hero date'),
@@ -21,8 +20,8 @@ function runriot_zen_course_runriot_course_panels_layouts() {
       'post_hero_availability' => t('Post hero availability'),
       'post_hero_cost' => t('Post hero cost'),
       'booknow' => t('Book now area'),
-      'about_course_left' => t('About course - left'),
-      'about_course_right' => t('About course - right'),
+      'course_option_header' => t('Course option header'),
+      'course_options' => t('Course options'),
       'more_about_header' => t('More about course - header'),
       'more_about' => t('More about course'),
       'trainer_intro' => t('Trainer intro'),
@@ -33,6 +32,8 @@ function runriot_zen_course_runriot_course_panels_layouts() {
       'course_body' => t('Course info body'),
       'booknow_footer' => t('Book now footer area'),
       'course_footer' => t('Footer text'),
+      'booking_header' => t('Booking header'),
+      'booking_body' => t('Booking body'),
     ),
   );
   return $items;
