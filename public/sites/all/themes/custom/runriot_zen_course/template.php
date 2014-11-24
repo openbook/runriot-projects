@@ -55,33 +55,37 @@ function runriot_zen_course_preprocess_html(&$variables, $hook) {
 
 function runriot_zen_course_preprocess_page(&$variables, $hook) {
   $variables['custom_header_menu'] = menu_tree_all_data("main-menu");
+  if (isset($variables['node']) && $variables['node']->type == 'project') {
+    ctools_include('modal');
+    ctools_modal_add_js();
+  }
 }
 
 /**
  * Helper function to create prev/next button
  */
 function runriot_zen_course_get_prev_next() {
-  $node = menu_get_object();
+  // $node = menu_get_object();
 
-  if (!isset($node->nid)) {
-    return;
-  }
+  // if (!isset($node->nid)) {
+  //   return;
+  // }
 
-  $prev_nid = prev_next_nid($node->nid, 'prev');
-  $next_nid = prev_next_nid($node->nid, 'next');
+  // $prev_nid = prev_next_nid($node->nid, 'prev');
+  // $next_nid = prev_next_nid($node->nid, 'next');
 
-  $output = '<div id="course-browse">';
-  if ($prev_nid) {
-    $output .= '<a id="prev-course" href="'.
-    url("node/" . $prev_nid) .'">Previous course</a>';
-  }
-  if ($next_nid) {
-    $output .= '<a id="next-course" href="'.
-    url("node/" . $next_nid) .'">Next course</a>';
-  }
+  // $output = '<div id="course-browse">';
+  // if ($prev_nid) {
+  //   $output .= '<a id="prev-course" href="'.
+  //   url("node/" . $prev_nid) .'">Previous course</a>';
+  // }
+  // if ($next_nid) {
+  //   $output .= '<a id="next-course" href="'.
+  //   url("node/" . $next_nid) .'">Next course</a>';
+  // }
 
-  $output .= "</div>";
-  return $output;
+  // $output .= "</div>";
+  // return $output;
 
 }
 
@@ -120,6 +124,7 @@ function runriot_zen_course_preprocess_field(&$variables, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function runriot_zen_course_preprocess_node(&$variables, $hook) {
+  kpr($variables);
 }
 
 /**

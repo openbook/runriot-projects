@@ -69,6 +69,7 @@
 
     <section id="more-about"  class="bkg-gray accordion-wrapper cf ">
       <div class="inner">
+      <a name="more" />
         <header <?php if (strpos($content['more_about_header'], 'Download')) :?>class="title-with-download <?php endif; ?>cf">
           <?php print $content['more_about_header']; ?>
         </header>

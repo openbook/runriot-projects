@@ -3093,37 +3093,6 @@ dl.accordion dd li {
     color: red;
 }
 
-#runriot-mailinglist-footer-signup-form .form-item.form-item-firstname,#runriot-mailinglist-footer-signup-form .form-item.form-item-surname {
-    width: 48%;
-    float: left;
-    clear: none;
-}
-
-#runriot-mailinglist-footer-signup-form .form-item.form-item-surname {
-    margin-left: 4%;
-}
-
-#runriot-mailinglist-footer-signup-form .form-item {
-    margin-bottom: 1em;
-}
-
-#runriot-mailinglist-footer-signup-form .form-item.form-item-firstname label,#runriot-mailinglist-footer-signup-form .form-item.form-item-surname label,#runriot-mailinglist-footer-signup-form .form-item.form-item-email label {
-    text-transform: uppercase;
-    font-size: 1em;
-}
-
-#runriot-mailinglist-footer-signup-form .form-item.form-type-checkbox {
-    float: left;
-    width: 50%;
-}
-
-#runriot-mailinglist-footer-signup-form .form-item.form-type-checkbox label {
-    text-transform: none;
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-}
-
 .field-collection-container {
     border: 0;
 }

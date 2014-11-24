@@ -6,7 +6,6 @@
 
 <div id="course-options">
 <?php foreach ($items as $key => $item) : ?>
-
   <?php $info_item = current($item['entity']['field_collection_item']);?>
 
     <div class="course-option">
@@ -14,16 +13,18 @@
       <div class="inside cf">
         <div class="icon" id="evening"></div>
         <h3><?php print $info_item['field_title'][0]['#markup']; ?></h3>
-
-        <div class="inside-column">
           <?php print $info_item['field_course_description'][0]['#markup']; ?>
-        </div>
 
-        <!--<div class="pullout-trainer">
-          <div class="trainer-avatar"><img src="images/tamara.jpg"></div>
-          <h4>The Trainer</h4>
-          <p>Dr. Tamara Russell, PHD, D.CLIN PSYCH, is a neuroscientist, author, clinical  psychologist and leading Mindfulness trainer. <a href="#trainer">More about Tamara</a></p>
-        </div>-->
+          <ul class="actions">
+            <li><a href="#more">More about Mindfulness</a></li>
+            <li><a href="#signup">Join our Mindfulness mailing list</a></li>
+            <?php if(isset($info_item['field_event_info'][0])) :
+             $booking_item = current($info_item['field_event_info'][0]['entity']['field_collection_item']);
+             ?>
+            <li><a class="action-dates" href="#booking">Dates</a></li>
+          <?php endif; ?>
+          </ul>
+
       </div>
     </div>
   <?php endforeach; ?>
@@ -34,7 +35,7 @@
 
   <?php
   $booking_items = current($current['field_event_info'][0]['entity']['field_collection_item']); ?>
-
+        <a name="booking" />
         <ul id="booking-options">
 
         <?php foreach ($items as $key => $item) : ?>
@@ -81,7 +82,7 @@
                   <td class="bo-book">
                     <?php if (!$concession_state && !$full_state) : ?>
                     <span class="message">Sold out</span>
-                    <a class="cta" href="#">Join mailing list</a>
+                    <a class="cta ctools-use-modal waitinglist-signup" href="/rr/mailinglist/nojs/<?php print arg(1); ?>">Join mailing list</a>
                     <?php else : ?>
                     <a class="btn" href="<?php print $event->url; ?>">Book</a>
                     <?php endif; ?>

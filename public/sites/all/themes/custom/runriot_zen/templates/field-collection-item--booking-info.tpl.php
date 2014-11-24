@@ -3,12 +3,6 @@
 
 <?php $current = current($items[0]['entity']['field_collection_item']);?>
 
-
-<?php
-
-kpr($current);
-
-?>
         <ul id="booking-options">
 
           <li><a name="booking-evening-course" class="anchor-offset"></a>

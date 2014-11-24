@@ -63,17 +63,24 @@ left: 27%;
   color:red;
 }
 
+#runriot-mailinglist-footer-signup-form {
+  text-align:center;
+}
 
 #runriot-mailinglist-footer-signup-form .form-item.form-item-firstname,
-#runriot-mailinglist-footer-signup-form .form-item.form-item-surname {
-  width: 48%;
+#runriot-mailinglist-footer-signup-form .form-item.form-item-surname,
+#runriot-mailinglist-footer-signup-form .form-item.form-item-email {
+  width: 25%;
   float:left;
   clear: none;
+  margin: 0 1% 1em 1%;
+  text-align:left;
 }
 
-#runriot-mailinglist-footer-signup-form .form-item.form-item-surname {
-  margin-left: 4%;
+#runriot-mailinglist-footer-signup-form .form-item.form-item-email {
+  width: 40%;
 }
+
 #runriot-mailinglist-footer-signup-form .form-item {
   margin-bottom: 1em;
 }
@@ -84,12 +91,26 @@ left: 27%;
 #runriot-mailinglist-footer-signup-form .form-item.form-item-email label {
   text-transform: uppercase;
   font-size: 1em;
+  text-align:left;
 }
 
 #runriot-mailinglist-footer-signup-form .form-item.form-type-checkbox {
-  float:left;
-  width:50%;
+  float: left;
+  width: 20%;
 }
+
+#edit-list--2 > div:first-child {
+  margin-left:32%;
+}
+
+#join.join-course input[type="submit"] {
+  background: #ff6500;
+  width:16%;
+  font-size: 1.2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 #runriot-mailinglist-footer-signup-form .form-item.form-type-checkbox label {
   text-transform: none;
   position: relative;
@@ -185,6 +206,7 @@ ul#course-detail li {
 ul#how-we-work li {
   font-weight:bold;
 }
+
 
 /* 40 Responsive - Tablet (900px)
 -------------------------------------------------------------- */

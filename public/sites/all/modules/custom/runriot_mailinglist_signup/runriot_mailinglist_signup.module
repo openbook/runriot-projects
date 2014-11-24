@@ -259,6 +259,8 @@ function runriot_mailinglist_footer_signup_form($form, &$form_state) {
       "ec32e24507" => t('Run-Riot Projects'),
       "b193eac482" => t('Run-Riot Magazine'),
     ),
+    '#prefix' => '<div class="clearfix">',
+    '#suffix' => '</div>',
   );
 
   $form['submit'] = array(

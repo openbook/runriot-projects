@@ -9,7 +9,7 @@
 <ul class="trainer-media">
 <?php foreach ($items as $key => $item) : ?>
   <?php $info_item = current($item['entity']['field_collection_item']);  ?>
-    <li>
+    <li <?php if ($key === 0) : ?>class="active"<?php endif; ?>>
       <?php print $info_item['field_description'][0]['#markup']; ?>
       <form>
         <input type="hidden" rel="popup" value="<?php print $info_item['field_show_in_pop_up']['#items'][0]['value']; ?>" />
