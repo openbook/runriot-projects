@@ -24,7 +24,7 @@
              $booking_item = current($info_item['field_event_info'][0]['entity']['field_collection_item']);
              ?>
             <li><a class="action-dates" href="#booking">Dates</a></li>
-            <?php eles : ?>
+            <?php else : ?>
             <li><span>Dates to be announced</span></li>
           <?php endif; ?>
           </ul>
