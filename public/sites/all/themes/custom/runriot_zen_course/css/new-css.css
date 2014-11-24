@@ -12,9 +12,12 @@ header nav#nav-main li#branding { }
 
 header nav#nav-main li#branding a {
 	display: block;
-	height: 100%;
-	width: 100%;
-	padding-left: 0; }
+	height: 41px;
+	width: 84px;
+	padding-left: 0;
+	text-indent: -9999em;
+	background: url('../images/run-riot-projects.png') no-repeat left top;
+	background-size: 84px; }
 
 header nav#nav-main img {
 	width: 84px;
@@ -38,7 +41,9 @@ nav#nav-main ul li:last-of-type {
 
 nav#nav-main ul li a {
 	color: #023059;
-	padding: 0 25px; }
+	padding: 0 25px;
+	height: 40px;
+	line-height: 40px }
 
 nav#nav-main ul li a:hover {
 	text-decoration: none;
@@ -82,91 +87,8 @@ nav#nav-connect ul li#nc-twitter:hover { 		background: url('../images/nc-twitter
 nav#nav-connect ul li#nc-facebook:hover  { 	background: url('../images/nc-facebook-b-h.png') center; }
 nav#nav-connect ul li#nc-youtube:hover { 		background: url('../images/nc-youtube-b-h.png') center; }
 
-/*
-
-header #branding:hover {
-	margin-top: 0; }
-
-header nav#nav-main {
-	float: left;
-	width: 10em;
-	display: block; }
-
-a#navibar {
-	position: relative;
-	display: block;
-	padding: 1em 1em 0 2.5em;
-	height: 2em;
-	color: #ff6e00;
-	font-size: 1.2em;
-	line-height: 2em;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
-
-a#navibar.active {
-	background: #fbe8e0; }
-
-a#navibar i.navmenu {
-	background: url('../http://runriotprojects.org/sites/all/themes/custom/runriot_zen/images/menu.png') no-repeat;
-	width: 20px;
-	height: 20px;
-	display: block;
-	position: absolute;
-	left: 1em;
-	top: 50%;
-	margin-top: -2px; }
 
 
-
-nav#nav-main ul li a {
-	display: block;
-	width: 100%;
-	padding: .5em 1em;
-	font-family: DINNextLTPro-Condensed, Arial, Sans-serif; }
-
-nav#nav-main ul li a:hover {
-	text-decoration: none;
-	color: #fbe8e0;
-	background: #ff6e00; }
-
-
-
-nav#nav-main,
-nav#nav-connect {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 90000; }
-
-nav#nav-connect {
-	left: auto;
-	right: 0; }
-
-header#masthead.sticky {
-	background: #fbe8e0;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	height: 70px;
-	display: block;
-	z-index: 90000;
-	-moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-	box-shadow: 0 0 10px rgba(0,0,0,.3); }
-
-header#masthead.sticky #branding {
- 	height: 70px;
- 	overflow: hidden; }
-
-header#masthead.sticky #branding img {
-	overflow: hidden;
-	height: 120px;
-	margin-top: 0px;
-	width: auto; }
-	*/
-
-/* Mobile nav */
 
 
 /* New generics
@@ -294,7 +216,11 @@ section.bkg-gray {
 .course-mindfulness section#sub-nav {
 	padding: 0;
 	background: #fbbb00;
-	text-align: left; }
+	text-align: left;
+	-webkit-transition: background 1s ease-in-out;
+	-moz-transition: background 1s ease-in-out;
+	-o-transition: background 1s ease-in-out;
+	transition: background 1s ease-in-out; }
 
 section#sub-nav .inner {
 	padding: 0; }
@@ -317,10 +243,10 @@ section#sub-nav nav li a {
 	border-radius: 3px; }
 
 section#sub-nav nav li a.sub-nav-button {
-	background: #f89100; }
+	background: #ff6500; }
 
 section#sub-nav nav li a.sub-nav-button:hover {
-	background: #f67b00; }
+	background: #f36406; }
 
 section#sub-nav nav li a:hover {
 	text-decoration: none;
@@ -335,13 +261,21 @@ section#sub-nav nav li.active:after {
 	margin-left: -16px;
 	border-style: solid;
 	border-width: 16px 16px 0 16px;
-	border-color: #fbbb00 transparent transparent transparent; }
+	border-color: #fbbb00 transparent transparent transparent;
+	-webkit-transition: border-color 1s ease-in-out;
+	-moz-transition: border-color 1s ease-in-out;
+	-o-transition: border-color 1s ease-in-out;
+	transition: border-color 1s ease-in-out; }
 
 section#sub-nav.sticky {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 9000; }
+	z-index: 9000;
+	background: #FCDA31; }
+
+section#sub-nav.sticky nav li.active:after {
+	border-color: #FCDA31 transparent transparent transparent; }
 
 /* Course options */
 #course-options {
@@ -814,3 +748,64 @@ a.anchor-offset {
 	content: ' ';
 	top: 0;
 	left: 0; }
+
+/* Navibar */
+#navibar {
+	display: none;
+	color: #023059;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	height: 36px;
+	line-height: 36px; }
+
+@media all and (max-width: 860px) {
+
+	#navibar {
+		display: block;
+		width: 30px;
+		text-indent: -9999em;
+		background: url('../images/menu.png') no-repeat left top; }
+
+	header nav#nav-main {
+		float: left; }
+
+	header nav#nav-main li#branding { }
+
+	header nav#nav-main li#branding a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		padding-left: 0;
+		background: none;
+		text-indent: 0; }
+
+	header nav#nav-main img {
+		width: 84px;
+		height: 41px; }
+
+	nav#nav-main {
+		width: auto; }
+
+	nav#nav-main ul {
+		display: none;
+		width: 100%;
+		padding: 0 .3em;
+		margin-top: 1em; }
+
+	nav#nav-main ul li {
+		display: block;
+		border-right: none;}
+
+	nav#nav-main ul li:last-of-type {
+		border-right: none;}
+
+	nav#nav-main ul li a {
+		color: #023059;
+		padding: .4em 0;
+		font-size: 1.2em;
+		display: block; }
+
+	.course-mindfulness section#sub-nav {
+		display: none;
+	}
+}

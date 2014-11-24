@@ -154,7 +154,7 @@ function runriot_zen_course_file_link($variables) {
   $options = array(
     'attributes' => array(
       'type' => $file->filemime . '; length=' . $file->filesize,
-      'class' => array("download", "download-pdf"),
+      'class' => array("download"),
     ),
   );
 

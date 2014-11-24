@@ -7,59 +7,56 @@ $(document).ready(function () {
     toolTip();
     trainerMedia();
 
-
-/*
-  Sticky course nav
-*/
- var $window = $(window),
+    /*
+    Sticky course nav
+    */
+    var $window = $(window),
        $stickyEl = $('#sub-nav'),
        elTop = $stickyEl.offset().top;
 
-   $window.scroll(function() {
+    $window.scroll(function() {
         $stickyEl.toggleClass('sticky', $window.scrollTop() > elTop);
         $('section').toggleClass('sticky-section', $window.scrollTop() > elTop);
     });
 
+    /*
+    Course nav highlight
+    */
+    var lastId,
+      topMenu = $("#sub-nav"),
+      topMenuHeight = topMenu.outerHeight(),
+      menuItems = topMenu.find("a"),
+      scrollItems = menuItems.map(function(){
+        var item = $($(this).attr("href"));
+        if (item.length) { return item; }
+      });
 
-
-/*
-  Course nav highlight
-*/
-var lastId,
-    topMenu = $("#sub-nav"),
-    topMenuHeight = topMenu.outerHeight(),
-    menuItems = topMenu.find("a"),
-    scrollItems = menuItems.map(function(){
-      var item = $($(this).attr("href"));
-      if (item.length) { return item; }
+    menuItems.click(function(e){
+    var href = $(this).attr("href"),
+        offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+    $('html, body').stop().animate({
+        scrollTop: offsetTop
+    }, 300);
+    e.preventDefault();
     });
 
-menuItems.click(function(e){
-  var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
-  $('html, body').stop().animate({
-      scrollTop: offsetTop + 100
-  }, 300);
-  e.preventDefault();
-});
+    $(window).scroll(function(){
+     var fromTop = $(this).scrollTop()+topMenuHeight;
 
-$(window).scroll(function(){
-   var fromTop = $(this).scrollTop()+topMenuHeight;
+     var cur = scrollItems.map(function(){
+       if ($(this).offset().top < fromTop)
+         return this;
+     });
+     cur = cur[cur.length-1];
+     var id = cur && cur.length ? cur[0].id : "";
 
-   var cur = scrollItems.map(function(){
-     if ($(this).offset().top < fromTop)
-       return this;
-   });
-   cur = cur[cur.length-1];
-   var id = cur && cur.length ? cur[0].id : "";
-
-   if (lastId !== id) {
-       lastId = id;
-       menuItems
-         .parent().removeClass("active")
-         .end().filter("[href=#"+id+"]").parent().addClass("active");
-   }
-});
+     if (lastId !== id) {
+         lastId = id;
+         menuItems
+           .parent().removeClass("active")
+           .end().filter("[href=#"+id+"]").parent().addClass("active");
+     }
+    });
 
 
 });
@@ -80,8 +77,14 @@ function mainnav(){
 	});
 
 	$(window).resize(function() {
-	 if ($(window).width() > 600) {
-	    $('#nav-main').show();
+	 if ($(window).width() > 860) {
+	    $('#nav-main ul').show();
+	}
+	});
+
+	$(window).resize(function() {
+	 if ($(window).width() < 860) {
+	    $('#nav-main ul').hide();
 	}
 	});
 }
@@ -124,7 +127,6 @@ function accordion() {
 	});
 
 }
-
 
 
 /*

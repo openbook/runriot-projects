@@ -16,7 +16,7 @@
     <nav id="nav-main">
       <a href="#" id="navibar"><span>Menu</span> <i class="navmenu"></i></a>
       <ul>
-        <li id="branding"><a href="#"><img src="<?php print $base_path . path_to_theme(); ?>/images/run-riot-projects.png" alt="Run Riot Projects" /></a></li>
+        <li id="branding"><a href="/">Home</a></li>
         <?php foreach ($custom_header_menu as $item) : ?>
         <?php if ($item['link']['hidden']) continue; ?>
         <li><?php print l($item['link']['link_title'], $item['link']['link_path']); ?></li>
