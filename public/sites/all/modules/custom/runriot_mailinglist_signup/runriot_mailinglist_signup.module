@@ -15,9 +15,9 @@ function runriot_mailinglist_signup_menu() {
     'type' => MENU_CALLBACK,
   );
 
-  $items['rr/mailinglist/%ctools_js/%'] = array(
+  $items['rr/mailinglist/%ctools_js/%/%'] = array(
     'page callback' => 'runriot_mailinglist_signup_callback',
-    'page arguments' => array(2,3),
+    'page arguments' => array(2,3,4),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
@@ -50,7 +50,7 @@ function runriot_mailinglist_signup_page() {
 /**
  * Ajax menu callback.
  */
-function runriot_mailinglist_signup_callback($ajax, $nid) {
+function runriot_mailinglist_signup_callback($ajax, $nid, $type = TRUE) {
 
   if ($ajax) {
     ctools_include('ajax');
@@ -60,6 +60,7 @@ function runriot_mailinglist_signup_callback($ajax, $nid) {
       'ajax' => TRUE,
       'title' => t('Sign up to our waiting list'),
       'nid' => $nid,
+      'type' => $type,
     );
 
     // Use ctools to generate ajax instructions for the browser to create
@@ -77,14 +78,14 @@ function runriot_mailinglist_signup_callback($ajax, $nid) {
     drupal_exit();
   }
   else {
-    return drupal_get_form('runriot_mailinglist_signup_form', $nid);
+    return drupal_get_form('runriot_mailinglist_signup_form', $nid, $type);
   }
 }
 
 /**
  * Drupal form to be put in a modal.
  */
-function runriot_mailinglist_signup_form($form, $form_state, $nid = FALSE) {
+function runriot_mailinglist_signup_form($form, $form_state, $nid = FALSE, $type = TRUE) {
 
   $form = array();
 
@@ -94,10 +95,18 @@ function runriot_mailinglist_signup_form($form, $form_state, $nid = FALSE) {
   );
   }
 
-  $form['title'] = array(
-    '#markup' => '<h2>Thank you for joining our waiting list</h2><p>We\'ll let
+  $keyword = $form_state['type'] ? 'waiting' : 'mailing';
+  $header = '';
+  if ($form_state['type']) {
+    $header = '<p>We\'ll let
     you know if a place becomes available on this course, and inform you about
-    further courses.</p>',
+    further courses.</p>';
+  } else {
+    $header = '<p>Sign up for the latest news and updates for this course</p>';
+  }
+
+  $form['title'] = array(
+    '#markup' => '<h2>Thank you for joining our ' . $keyword .' list</h2>'. $header,
   );
 
   $form['firstname'] = array(
@@ -157,7 +166,7 @@ function runriot_mailinglist_signup_form($form, $form_state, $nid = FALSE) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Join waiting list'),
+    '#value' => t('Join ' . $keyword .' list'),
   );
 
  $form['close'] = array(

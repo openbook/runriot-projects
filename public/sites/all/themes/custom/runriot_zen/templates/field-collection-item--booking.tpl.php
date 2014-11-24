@@ -19,7 +19,7 @@
             <?php if ($key === 0) : ?>
               <li><a href="#more">More about Mindfulness</a></li>
             <?php endif; ?>
-            <li><a href="#signup">Join our Mindfulness mailing list</a></li>
+            <li><a class="cta ctools-use-modal waitinglist-signup" href="/rr/mailinglist/nojs/<?php print arg(1); ?>/0">Join our Mindfulness mailing list</a></li>
             <?php if(isset($info_item['field_event_info'][0])) :
              $booking_item = current($info_item['field_event_info'][0]['entity']['field_collection_item']);
              ?>
@@ -90,7 +90,7 @@
                   <td class="bo-book">
                     <?php if (!$concession_state && !$full_state) : ?>
                     <span class="message">Sold out</span>
-                    <a class="cta ctools-use-modal waitinglist-signup" href="/rr/mailinglist/nojs/<?php print arg(1); ?>">Join mailing list</a>
+                    <a class="cta ctools-use-modal waitinglist-signup" href="/rr/mailinglist/nojs/<?php print arg(1); ?>/1">Join mailing list</a>
                     <?php else : ?>
                     <a class="btn" href="<?php print $event->url; ?>">Book</a>
                     <?php endif; ?>
