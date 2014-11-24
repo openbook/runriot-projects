@@ -38,7 +38,8 @@
 <?php else : ?>
 
   <?php
-  $booking_items = current($current['field_event_info'][0]['entity']['field_collection_item']); ?>
+  $booking_items = current($current['field_event_info'][0]['entity']['field_collection_item']);
+  ?>
         <a name="booking" />
         <ul id="booking-options">
 
@@ -46,6 +47,9 @@
 
           <?php
             $info_item = current($item['entity']['field_collection_item']);
+            if (!isset($info_item['field_event_info'][0])) {
+              continue;
+            }
             $short_desc = substr(strip_tags($info_item['field_course_description'][0]['#markup']), 0, strpos(wordwrap(strip_tags($info_item['field_course_description'][0]['#markup']), 100), "\n"));
           ?>
 
