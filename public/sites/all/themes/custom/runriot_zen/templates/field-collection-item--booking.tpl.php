@@ -9,7 +9,7 @@
   <?php $info_item = current($item['entity']['field_collection_item']);?>
 
     <div class="course-option">
-      <a name="course-option-evening" class="anchor-offset"></a>
+      <a name="course-option-<?php print $key; ?>" class="anchor-offset"></a>
       <div class="inside cf">
         <div class="icon" id="evening"></div>
         <h3><?php print $info_item['field_title'][0]['#markup']; ?></h3>
@@ -50,12 +50,11 @@
             if (!isset($info_item['field_event_info'][0])) {
               continue;
             }
-            $short_desc = substr(strip_tags($info_item['field_course_description'][0]['#markup']), 0, strpos(wordwrap(strip_tags($info_item['field_course_description'][0]['#markup']), 100), "\n"));
           ?>
 
           <li><a name="booking-evening-course" class="anchor-offset"></a>
             <h2><?php print $info_item['field_title'][0]['#markup']; ?></h2>
-            <p><?php print $short_desc; ?> <a href="#course-option-evening">More</a>.</p>
+            <p><?php print $info_item['field_short_description'][0]['#markup']; ?> <a href="#course-option-<?php print $key; ?>">More</a>.</p>
 
             <table>
               <thead>
