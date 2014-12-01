@@ -25,7 +25,7 @@
  */
 ?>
 <ul>
-<?php foreach($row->field_field_hero_image as $image) : ?>
+<?php foreach($row->field_field_promo_image as $image) : ?>
           <li>
             <img src="<?php print file_create_url($image['rendered']['#item']['uri']); ?>" />
           </li>
