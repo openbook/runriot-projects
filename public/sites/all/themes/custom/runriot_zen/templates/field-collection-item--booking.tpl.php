@@ -82,7 +82,7 @@
                 && $tickets['concession']->quantity_available > $tickets['concession']->quantity_sold ? TRUE : FALSE;
                 ?>
                 <tr>
-                  <td class="bo-date"><?php print $booking_item['field_date_and_time'][0]['#markup']; ?></td>
+                  <td class="bo-date"><?php print $booking_item['field_date_and_time'][0]['#markup']; ?> <?php print $booking_item['field_event_time'][0]['#markup']; ?></td>
                   <td class="bo-group"><?php print $booking_item['field_group_size'][0]['#markup']; ?></td>
                   <td class="bo-location"><?php print $booking_item['field_location'][0]['#markup']; ?></td>
                   <td class="bo-price"><?php print $booking_item['field_full_price'][0]['#markup']; ?></td>
