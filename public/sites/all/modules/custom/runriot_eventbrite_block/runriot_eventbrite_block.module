@@ -162,4 +162,19 @@ function runriot_signup_block($form, &$form_state, $vars) {
 }
 
 
+function _runriot_get_event_by_id($event_id) {
+
+  // setup the EventBrite api
+  $app_key = variable_get("rr_eventbrite_app_key", "MU2WVQCG3T6JP2PZX7");
+  $user_key = variable_get("rr_eventbrite_user_key", "1404244170106795948557");
+  $eb_client = new Eventbrite( array('app_key'=> $app_key,'user_key'=> $user_key));
+
+  $resp = $eb_client->event_get( array('id' => $event_id ) );
+  if (!isset($resp->event)) {
+    continue;
+  }
+  $event = $resp->event;
+
+  return $event;
+}
 
