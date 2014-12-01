@@ -121,12 +121,20 @@ function runriot_mailinglist_signup_form($form, $form_state, $nid = FALSE, $type
     '#title' => t('Surname'),
     '#required' => TRUE,
   );
-  $form['dob'] = array(
-    '#type' => 'textfield',
-    '#title' => t('D.O.B'),
-    '#required' => FALSE,
-    '#description' => t('Please enter your d.o.b in the format dd/mm/yyyy'),
-  );
+  // only show dob when
+  if ($form_state['type']) {
+    $form['dob'] = array(
+      '#type' => 'textfield',
+      '#title' => t('D.O.B'),
+      '#required' => FALSE,
+      '#description' => t('Please enter your d.o.b in the format dd/mm/yyyy'),
+    );
+  } else {
+    $form['dob'] = array(
+      "#type" => "hidden",
+      "#value" => "",
+    );
+  }
   $form['email'] = array(
     '#type' => 'textfield',
     '#title' => t('Email address'),
@@ -145,14 +153,23 @@ function runriot_mailinglist_signup_form($form, $form_state, $nid = FALSE, $type
   $form['postcode'] = array(
     '#type' => 'textfield',
     '#title' => t('Postcode'),
-    '#required' => FALSE,
+    '#required' => TRUE,
   );
 
-  $form['tickets'] = array(
-    '#type' => 'checkboxes',
-    '#options' => drupal_map_assoc(array(t('Full price'), t('Concessionary price'))),
-    '#title' => t('Ticket option'),
-  );
+  // only show ticket options when showing waiting list
+  if ($form_state['type']) {
+    $form['tickets'] = array(
+      '#type' => 'checkboxes',
+      '#options' => drupal_map_assoc(array(t('Full price'), t('Concessionary price'))),
+      '#title' => t('Ticket option'),
+    );
+  } else {
+    $form['tickets'] = array(
+      "#type" => "hidden",
+      "#value" => "",
+    );
+  }
+
   $form['required'] = array(
     '#markup' => '<p>*Required fields</p>',
   );
